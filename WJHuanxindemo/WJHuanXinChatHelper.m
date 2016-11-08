@@ -74,11 +74,24 @@ static WJHuanXinChatHelper *helper = nil;
 /**会话列表改变,只有新增或者删除会话列表才会走这里*/
 - (void)conversationListDidUpdate:(NSArray *)aConversationList {
     NSLog(@"%@:会话状态改变",[self class]);
+    if (self.mainVC) {
+//        [_mainVC setupUnreadMessageCount];
+        //更新小气泡
+    }
+    
+    if (self.conversationListVC) {
+        [_conversationListVC refreshDataSource];
+    }
 }
 
 /**收到普通消息*/
 - (void)messagesDidReceive:(NSArray *)aMessages {
     NSLog(@"%@:收到普通消息",[self class]);
+//    BOOL isRefreshCons = YES;
+//    for(EMMessage *message in aMessages){
+//        BOOL needShowNotification = (message.chatType != EMChatTypeChat) ? [self _needShowNotification:message.conversationId] : YES;
+//    }
+    //总的判断
 }
 
 /**收到命令消息*/
@@ -97,4 +110,18 @@ static WJHuanXinChatHelper *helper = nil;
     NSLog(@"%@:附件消息改变",[self class]);
 }
 
+#pragma mark - other
+
+- (BOOL)_needShowNotification:(NSString *)fromChatter
+{
+    BOOL ret = YES;
+    NSArray *igGroupIds = [[EMClient sharedClient].groupManager getGroupsWithoutPushNotification:nil];
+    for (NSString *str in igGroupIds) {
+        if ([str isEqualToString:fromChatter]) {
+            ret = NO;
+            break;
+        }
+    }
+    return ret;
+}
 @end

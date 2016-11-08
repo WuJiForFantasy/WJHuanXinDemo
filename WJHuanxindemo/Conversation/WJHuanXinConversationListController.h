@@ -12,4 +12,7 @@
 
 @interface WJHuanXinConversationListController : UIViewController<EMChatManagerDelegate>
 
+-(void)refresh;
+/**从数据库刷新会话列表*/
+- (void)refreshDataSource;
 @end

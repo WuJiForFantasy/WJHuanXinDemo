@@ -13,7 +13,7 @@
 //#import "FriendListController.h"
 #import "FriendListController.h"
 #import "WJHuanXinChatBaseController.h"
-
+#import "WJHuanXinChatHelper.h"
 @interface AppDelegate ()
 
 @end
@@ -37,6 +37,11 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = main;
     [self.window makeKeyWindow];
+    
+    //聊天的监听，网络状态，消息接收等。。。
+    WJHuanXinChatHelper *helper = [WJHuanXinChatHelper shareHelper];
+    helper.mainVC = main;
+    helper.conversationListVC = conversation;
     
     return YES;
 }

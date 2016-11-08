@@ -47,15 +47,14 @@
 {
     [super viewWillAppear:animated];
     
-    [self registerNotifications];
+    [self.store registerNotifications];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self unregisterNotifications];
+    [self.store unregisterNotifications];
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,31 +66,15 @@
     [self.store requestAllConversations:^{
         [self.tableView reloadData];
     }];
-    //获取所有会话
-//    NSArray *conversations = [[EMClient sharedClient].chatManager getAllConversations];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)refresh {
+    [self.store refreshAndSortView];
 }
 
-#pragma mark - 环信聊天管理
--(void)registerNotifications{
-    [self unregisterNotifications];
-    [[EMClient sharedClient].chatManager addDelegate:self delegateQueue:nil];
-//    [[EMClient sharedClient].groupManager addDelegate:self delegateQueue:nil];
+- (void)refreshDataSource {
+    [self.store tableViewDidTriggerHeaderRefresh];
 }
-
--(void)unregisterNotifications{
-    [[EMClient sharedClient].chatManager removeDelegate:self];
-//    [[EMClient sharedClient].groupManager removeDelegate:self];
-}
-
-- (void)dealloc{
-    [self unregisterNotifications];
-}
-
 
 #pragma mark - <UITableViewDelegate,UITableViewDataSource>
 
@@ -132,14 +115,14 @@
     return YES;
 }
 
-#pragma mark - <EMChatManagerDelegate>
-
-- (void)conversationListDidUpdate:(NSArray *)aConversationList {
-    NSLog(@"%@",aConversationList);
-     [self.store requestAllConversations:^{
-        [self.tableView reloadData];
-    }];
-}
+//#pragma mark - <EMChatManagerDelegate>
+//
+//- (void)conversationListDidUpdate:(NSArray *)aConversationList {
+//    NSLog(@"%@",aConversationList);
+//     [self.store requestAllConversations:^{
+//        [self.tableView reloadData];
+//    }];
+//}
 
 #pragma mark - others
 

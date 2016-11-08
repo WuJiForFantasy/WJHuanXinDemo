@@ -29,8 +29,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                                          apnsCertName:apnsCertName
                                           otherConfig:nil];
     
-    //聊天的监听，网络状态，消息接收等。。。
-    [WJHuanXinChatHelper shareHelper];
+  
     
 //    BOOL isAutoLogin = [EMClient sharedClient].isAutoLogin;
 //    if (isAutoLogin){

@@ -11,7 +11,15 @@
 
 @interface WJHuanXinConversationStore : NSObject
 
-@property (nonatomic,strong)NSMutableArray *dataArray;//会话数据
+@property (nonatomic,strong)UITableView *tableView;  //会话列表
+@property (nonatomic,strong)NSMutableArray *dataArray;  //会话数据
+
+-(void)registerNotifications;
+-(void)unregisterNotifications;
+/**刷新会话*/
+-(void)refreshAndSortView;
+/**重新从数据库中读取会话*/
+- (void)tableViewDidTriggerHeaderRefresh;
 
 //请求所有会话
 - (void)requestAllConversations:(dispatch_block_t)block;
