@@ -12,4 +12,6 @@
 #define SCREEN_WIDTH CGRectGetWidth([UIScreen mainScreen].bounds)
 #define SCREEN_HEIGHT CGRectGetHeight([UIScreen mainScreen].bounds)
 
+#import "WJAdditions.h"
+
 #endif /* Header_h */

@@ -15,6 +15,8 @@
 /**单例*/
 + (instancetype)shareHelper;
 
+/**异步获取从数据库会话*/
+
 - (void)asyncConversationFromDB;
 
 @end

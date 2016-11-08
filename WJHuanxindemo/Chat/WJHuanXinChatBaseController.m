@@ -7,10 +7,14 @@
 //
 
 #import "WJHuanXinChatBaseController.h"
+#import "WJHuanXinChatMsgCellUtil.h"
+#import "WJHuanXinChatStore.h"
+@interface WJHuanXinChatBaseController ()<UITableViewDelegate,UITableViewDataSource> {
+   
+    
+}
 
-@interface WJHuanXinChatBaseController ()<EMChatManagerDelegate,UITableViewDelegate,UITableViewDataSource>
-
-@property (strong, nonatomic) EMConversation *conversation;     //环信聊天会话
+@property (nonatomic,strong)WJHuanXinChatStore *store;
 @property (nonatomic,strong) UITableView *tableView;            //列表
 
 @end
@@ -23,10 +27,18 @@
                            conversationType:(EMConversationType)conversationType {
     self = [super init];
     if (self) {
-        _conversation = [[EMClient sharedClient].chatManager getConversation:conversationChatter type:conversationType createIfNotExist:YES];
-        [_conversation markAllMessagesAsRead:nil];
+        //进入的时候获取会话对象
+        [self.store getConversationChatter:conversationChatter];
     }
     return self;
+}
+
+- (WJHuanXinChatStore *)store {
+    if (!_store) {
+        _store = [WJHuanXinChatStore new];
+        
+    }
+    return _store;
 }
 
 - (UITableView *)tableView {
@@ -34,7 +46,8 @@
         _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellID"];
+        _tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"20150207101056_tGZfA.thumb.700_0"]];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _tableView;
 }
@@ -42,100 +55,57 @@
 #pragma mark - 生命周期
 
 - (void)dealloc {
-    //移除聊天会话
-//    [[EMClient sharedClient].chatManager deleteConversation:self.conversation.conversationId isDeleteMessages:YES completion:nil];
-//    //移除代理
-//    [[EMClient sharedClient] removeDelegate:self];
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
+    self.store.tableView = self.tableView;
+    [self.store startConversation];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"send" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemPressed)];
     self.navigationItem.rightBarButtonItem = rightItem;
-        
-    //移除消息回调
-    [[EMClient sharedClient].chatManager removeDelegate:self];
-    
-    //注册消息回调
-    [[EMClient sharedClient].chatManager addDelegate:self delegateQueue:nil];
-
-}
-
-
-- (void)didReceiveHasDeliveredAcks:(NSArray *)aMessages {
-    NSLog(@"收到消息");
-}
-- (void)conversationListDidUpdate:(NSArray *)aConversationList {
-    NSLog(@"会话列表发生改变");
+    [self.store tableViewDidTriggerHeaderRefresh];
 }
 
 #pragma mark - 事件监听
 
 - (void)rightItemPressed {
-    
-    EMMessage *message = [EaseSDKHelper sendTextMessage:@"test test !~~"
-                                                     to:self.conversation.conversationId
-                                            messageType:EMChatTypeChat
-                                             messageExt:nil];
-    
-    //发送消息
-    [[EMClient sharedClient].chatManager sendMessage:message progress:nil completion:^(EMMessage *aMessage, EMError *aError) {
-        NSLog(@"%u",aMessage.status);
-        if (!aError) {
-            NSLog(@"消息发送成功");
-        }
-        else {
-            NSLog(@"发送失败");
-        }
-    }];
+    [self.store sendTextMessage:@"123"];
 }
 
 #pragma mark - <UITableViewDelegate,UITableViewDataSource>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.store.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
-    return cell;
+    UITableViewCell *cell = nil;
+    id object = [self.store.dataArray objectAtIndex:indexPath.row];
+    //time cell
+    if ([object isKindOfClass:[NSString class]]) {
+        NSString *TimeCellIdentifier = [EaseMessageTimeCell cellIdentifier];
+        EaseMessageTimeCell *timeCell = (EaseMessageTimeCell *)[tableView dequeueReusableCellWithIdentifier:TimeCellIdentifier];
+        
+        if (timeCell == nil) {
+            timeCell = [[EaseMessageTimeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TimeCellIdentifier];
+            timeCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        timeCell.title = object;
+        return timeCell;
+    }else {
+        cell = [WJHuanXinChatMsgCellUtil tableView:tableView cellForMsg:object];
+        return cell;
+    }
 }
 
-#pragma mark - <EMChatManagerDelegate>
-
-/**收到消息*/
-- (void)messagesDidReceive:(NSArray *)aMessages {
-    NSLog(@"收到消息");
-    NSLog(@"%@",aMessages);
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    id object = [self.store.dataArray objectAtIndex:indexPath.row];
+    return [WJHuanXinChatMsgCellUtil cellHeightForMsg:object];
 }
 
-/**收到Cmd消息*/
-- (void)cmdMessagesDidReceive:(NSArray *)aCmdMessages {
-    NSLog(@"收到cmd消息");
-}
-
-/**收到已读回执*/
-- (void)messagesDidRead:(NSArray *)aMessages {
-    NSLog(@"对方已读");
-}
-
-/**收到消息送达回执*/
-- (void)messagesDidDeliver:(NSArray *)aMessages {
-    NSLog(@"消息送达");
-}
-
-/**消息状态发生变化*/
-- (void)messageStatusDidChange:(EMMessage *)aMessage
-                         error:(EMError *)aError {
-    NSLog(@"消息状态改变。。。");
-}
-
-/**消息附件状态发生改变*/
-- (void)messageAttachmentStatusDidChange:(EMMessage *)aMessage
-                                   error:(EMError *)aError {
-    NSLog(@"消息附件发送改变。。。");
-}
 
 #pragma mark - other
 
