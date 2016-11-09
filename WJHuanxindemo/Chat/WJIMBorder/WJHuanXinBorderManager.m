@@ -134,7 +134,7 @@
 
 - (void)picMsgAndVideoMsg {
     
-    UIImage *image = [UIImage imageNamed:@"meitu_boy"];
+    UIImage *image = [UIImage imageNamed:@"20150207101056_tGZfA.thumb.700_0"];
     
     CGFloat f = image.size.height/image.size.width;
     

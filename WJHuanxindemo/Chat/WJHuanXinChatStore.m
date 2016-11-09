@@ -189,64 +189,6 @@
         }
     }
 }
-
-- (BOOL)shouldSendHasReadAckForMessage:(EMMessage *)message
-                                  read:(BOOL)read
-{
-    NSString *account = [[EMClient sharedClient] currentUsername];
-    if (message.chatType != EMChatTypeChat || message.isReadAcked || [account isEqualToString:message.from] || ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) || !self.isViewDidAppear)
-    {
-        return NO;
-    }
-    
-    EMMessageBody *body = message.body;
-    if (((body.type == EMMessageBodyTypeVideo) ||
-         (body.type == EMMessageBodyTypeVoice) ||
-         (body.type == EMMessageBodyTypeImage)) &&
-        !read)
-    {
-        return NO;
-    }
-    else
-    {
-        return YES;
-    }
-}
-
-//发送消息回执
-- (void)_sendHasReadResponseForMessages:(NSArray*)messages
-                                 isRead:(BOOL)isRead {
-    NSMutableArray *unreadMessages = [NSMutableArray array];
-    for (NSInteger i = 0; i < [messages count]; i++)
-    {
-        EMMessage *message = messages[i];
-        BOOL isSend = YES;
-//        if (_dataSource && [_dataSource respondsToSelector:@selector(messageViewController:shouldSendHasReadAckForMessage:read:)]) {
-//            isSend = [_dataSource messageViewController:self
-//                         shouldSendHasReadAckForMessage:message read:isRead];
-//        }
-//        else{
-//            isSend = [self shouldSendHasReadAckForMessage:message
-//                                                     read:isRead];
-//        }
-        isSend = [self shouldSendHasReadAckForMessage:message
-                                                 read:isRead];
-
-        if (isSend)
-        {
-            [unreadMessages addObject:message];
-        }
-    }
-    
-    if ([unreadMessages count])
-    {
-        for (EMMessage *message in unreadMessages)
-        {
-            [[EMClient sharedClient].chatManager sendMessageReadAck:message completion:nil];
-        }
-    }
-}
-
 #pragma mark - 私有方法
 
 - (void)_reloadTableViewDataWithMessage:(EMMessage *)message {
@@ -375,6 +317,7 @@
     
     __weak typeof(self) weakself = self;
     [[EMClient sharedClient].chatManager sendMessage:message progress:nil completion:^(EMMessage *aMessage, EMError *aError) {
+        NSLog(@"%@",aError.errorDescription);
         if (!aError) {
             [weakself _refreshAfterSentMessage:aMessage];
         }
@@ -634,6 +577,64 @@
     return isMark;
 }
 
+
+- (BOOL)shouldSendHasReadAckForMessage:(EMMessage *)message
+                                  read:(BOOL)read
+{
+    NSString *account = [[EMClient sharedClient] currentUsername];
+    if (message.chatType != EMChatTypeChat || message.isReadAcked || [account isEqualToString:message.from] || ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) || !self.isViewDidAppear)
+    {
+        return NO;
+    }
+    
+    EMMessageBody *body = message.body;
+    if (((body.type == EMMessageBodyTypeVideo) ||
+         (body.type == EMMessageBodyTypeVoice) ||
+         (body.type == EMMessageBodyTypeImage)) &&
+        !read)
+    {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
+
+//发送消息回执
+- (void)_sendHasReadResponseForMessages:(NSArray*)messages
+                                 isRead:(BOOL)isRead {
+    NSMutableArray *unreadMessages = [NSMutableArray array];
+    for (NSInteger i = 0; i < [messages count]; i++)
+    {
+        EMMessage *message = messages[i];
+        BOOL isSend = YES;
+        //        if (_dataSource && [_dataSource respondsToSelector:@selector(messageViewController:shouldSendHasReadAckForMessage:read:)]) {
+        //            isSend = [_dataSource messageViewController:self
+        //                         shouldSendHasReadAckForMessage:message read:isRead];
+        //        }
+        //        else{
+        //            isSend = [self shouldSendHasReadAckForMessage:message
+        //                                                     read:isRead];
+        //        }
+        isSend = [self shouldSendHasReadAckForMessage:message
+                                                 read:isRead];
+        
+        if (isSend)
+        {
+            [unreadMessages addObject:message];
+        }
+    }
+    
+    if ([unreadMessages count])
+    {
+        for (EMMessage *message in unreadMessages)
+        {
+            [[EMClient sharedClient].chatManager sendMessageReadAck:message completion:nil];
+        }
+    }
+}
+
 #pragma mark - other
 
 //获取会话类型
@@ -710,7 +711,4 @@
     }
     return formattedArray;
 }
-
-
-
 @end

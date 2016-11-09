@@ -31,7 +31,7 @@
     return self;
 }
 
-- (void)setIMMsg:(EMMessage *)msg {
+- (void)setIMMsg:(EaseMessageModel *)msg {
     [super setIMMsg:msg];
     [self borderImageAndFrame];
     

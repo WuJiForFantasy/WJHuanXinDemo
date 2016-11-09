@@ -19,6 +19,8 @@
 		B95F3C481DD0284C0034914A /* MainController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B95F3C401DD0284C0034914A /* MainController.xib */; };
 		B95F3C4C1DD0286A0034914A /* WJHuanXinChatBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F3C4B1DD0286A0034914A /* WJHuanXinChatBaseController.m */; };
 		B95F3C4F1DD028B40034914A /* AppDelegate+WJHuanXin.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F3C4E1DD028B40034914A /* AppDelegate+WJHuanXin.m */; };
+		B9C56EC21DD2C26300A37843 /* 02.mov in Resources */ = {isa = PBXBuildFile; fileRef = B9C56EC11DD2C26300A37843 /* 02.mov */; };
+		B9C56EC41DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B9C56EC31DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 */; };
 		B9C8906B1DD16C3100E60BC5 /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C890681DD16C3100E60BC5 /* FriendListController.m */; };
 		B9C8906C1DD16C3100E60BC5 /* FriendStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C8906A1DD16C3100E60BC5 /* FriendStore.m */; };
 		B9C8906F1DD16D4A00E60BC5 /* WJHuanXinChatBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C8906E1DD16D4A00E60BC5 /* WJHuanXinChatBaseCell.m */; };
@@ -218,6 +220,8 @@
 		B95F3C4D1DD028B40034914A /* AppDelegate+WJHuanXin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+WJHuanXin.h"; sourceTree = "<group>"; };
 		B95F3C4E1DD028B40034914A /* AppDelegate+WJHuanXin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+WJHuanXin.m"; sourceTree = "<group>"; };
 		B95F3DEE1DD02AE90034914A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B9C56EC11DD2C26300A37843 /* 02.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 02.mov; sourceTree = "<group>"; };
+		B9C56EC31DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Maria Arredondo - Burning.mp3"; sourceTree = "<group>"; };
 		B9C890671DD16C3100E60BC5 /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListController.h; sourceTree = "<group>"; };
 		B9C890681DD16C3100E60BC5 /* FriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListController.m; sourceTree = "<group>"; };
 		B9C890691DD16C3100E60BC5 /* FriendStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendStore.h; sourceTree = "<group>"; };
@@ -607,6 +611,8 @@
 		B95F3BE91DD0238C0034914A /* WJHuanxindemo */ = {
 			isa = PBXGroup;
 			children = (
+				B9C56EC31DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 */,
+				B9C56EC11DD2C26300A37843 /* 02.mov */,
 				B9C890AF1DD1CBC700E60BC5 /* WJAdditions */,
 				B9C890701DD16DFA00E60BC5 /* MoyouSmallIconText.h */,
 				B9C890711DD16DFA00E60BC5 /* MoyouSmallIconText.m */,
@@ -1521,12 +1527,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9C56EC21DD2C26300A37843 /* 02.mov in Resources */,
 				B95F3BFA1DD0238C0034914A /* LaunchScreen.storyboard in Resources */,
 				B95F3BF71DD0238C0034914A /* Assets.xcassets in Resources */,
 				B95F3BF51DD0238C0034914A /* Main.storyboard in Resources */,
 				B95F3C481DD0284C0034914A /* MainController.xib in Resources */,
 				B9ED8CEB1DD0AFA100986ACD /* MWPhotoBrowser.bundle in Resources */,
 				B9ED8CC01DD0AFA100986ACD /* MJRefresh.bundle in Resources */,
+				B9C56EC41DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 in Resources */,
 				B9ED8D191DD0AFA200986ACD /* EaseUIResource.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

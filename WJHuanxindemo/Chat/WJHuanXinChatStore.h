@@ -14,15 +14,15 @@
 
 @interface WJHuanXinChatStore : NSObject
 
-@property (nonatomic,strong)UITableView *tableView;             //列表
+@property (nonatomic,strong)UITableView *tableView;                 //列表
 
-@property (strong, nonatomic)EMConversation *conversation;     //环信聊天会话
-@property (nonatomic,strong)NSMutableArray *messsagesSource;    //消息数据 - EMMessage环信对象
-@property (nonatomic,strong)NSMutableArray *dataArray;          //消息数据 - WJHuanXinChatMsgModel消息模型对象
+@property (nonatomic,strong)EMConversation *conversation;          //环信聊天会话
+@property (nonatomic,strong)NSMutableArray *messsagesSource;        //消息数据 - EMMessage环信对象
+@property (nonatomic,strong)NSMutableArray *dataArray;              //消息数据 - EaseMessageModel消息模型对象
 @property (nonatomic,assign)NSTimeInterval messageTimeIntervalTag;  //消息时间戳标记
 
-@property (nonatomic) NSInteger messageCountOfPage; //default 50
-@property (nonatomic) BOOL isViewDidAppear;                     //视图将要显示
+@property (nonatomic) NSInteger messageCountOfPage;                 //default 50
+@property (nonatomic) BOOL isViewDidAppear;                         //视图将要显示
 
 /**通过会话ID获取会话，创建单聊,最初调用*/
 - (void)getConversationChatter:(NSString *)conversationChatter;

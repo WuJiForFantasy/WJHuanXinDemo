@@ -10,11 +10,10 @@
 #import "WJHuanXinChatMsgCellUtil.h"
 #import "WJHuanXinChatStore.h"
 @interface WJHuanXinChatBaseController ()<UITableViewDelegate,UITableViewDataSource> {
-   
     
 }
 
-@property (nonatomic,strong)WJHuanXinChatStore *store;
+@property (nonatomic,strong) WJHuanXinChatStore *store;         //数据配置管理
 @property (nonatomic,strong) UITableView *tableView;            //列表
 
 @end
@@ -36,7 +35,6 @@
 - (WJHuanXinChatStore *)store {
     if (!_store) {
         _store = [WJHuanXinChatStore new];
-        
     }
     return _store;
 }
@@ -71,7 +69,17 @@
 #pragma mark - 事件监听
 
 - (void)rightItemPressed {
-    [self.store sendTextMessage:@"123"];
+//    [self.store sendTextMessage:@"123"];
+    //发送了地理位置
+//    [self.store sendLocationMessageLatitude:39.929986 longitude:116.37926 andAddress:@"这是测试地址"];
+    //发送图片
+//    [self.store sendImageMessage:[UIImage imageNamed:@"20150207101056_tGZfA.thumb.700_0"]];
+    NSString *url =  [[NSBundle mainBundle]pathForResource:@"Maria Arredondo - Burning" ofType:@"mp3"];
+    [self.store sendVoiceMessageWithLocalPath:url duration:10];
+    
+//    NSString *str = [[NSBundle mainBundle]pathForResource:@"02" ofType:@"mov"];
+//    NSURL *urlPath = [NSURL URLWithString:str];
+//    [self.store sendVideoMessageWithURL:urlPath];
 }
 
 #pragma mark - <UITableViewDelegate,UITableViewDataSource>
@@ -92,10 +100,10 @@
             timeCell = [[EaseMessageTimeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TimeCellIdentifier];
             timeCell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        
         timeCell.title = object;
         return timeCell;
     }else {
+        //自定义各种类型的cell
         cell = [WJHuanXinChatMsgCellUtil tableView:tableView cellForMsg:object];
         return cell;
     }
@@ -103,6 +111,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     id object = [self.store.dataArray objectAtIndex:indexPath.row];
+    //返回高度
     return [WJHuanXinChatMsgCellUtil cellHeightForMsg:object];
 }
 

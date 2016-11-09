@@ -40,7 +40,7 @@
     return _textView;
 }
 
-- (void)setIMMsg:(EMMessage *)msg {
+- (void)setIMMsg:(EaseMessageModel *)msg {
     [super setIMMsg:msg];
     [self.textView setText:@"测试测试测试"];
     
