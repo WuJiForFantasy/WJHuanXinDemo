@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-/***环信聊天控制器*/
+#import "WJHuanXinChatStore.h"
+/***环信聊天控制器最底层的*/
 @interface WJHuanXinChatBaseController : UIViewController
 
+@property (nonatomic) BOOL isPlayingAudio;  //正在播放音乐
+@property (nonatomic,strong) WJHuanXinChatStore *store;         //数据配置管理
 /**初始化--传入会话ID（单聊就是用户名称，会话类型是单聊）*/
 
 - (instancetype)initWithConversationChatter:(NSString *)conversationChatter

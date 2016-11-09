@@ -52,7 +52,7 @@
 - (UIView *)bottomView {
     if (!_bottomView) {
         _bottomView = [UIView new];
-        //        _bottomView.backgroundColor = [MoyouColor colorWithdefalutColor];
+        _bottomView.backgroundColor = [UIColor redColor];
 //        [_bottomView jm_setJMRadius:JMRadiusMake(0, 0, 5, 5) withBackgroundColor:[UIColor redColor]];
     }
     return _bottomView;
@@ -64,6 +64,8 @@
     [super setIMMsg:msg];
     [self borderImageAndFrame];
     self.picImage.image = [UIImage imageNamed:@"20150207101056_tGZfA.thumb.700_0"];
+    self.locationLabel.text = msg.address;
+    
     if (self.fromType == WJIMMsgFromOther) {
         self.picImage.frame = CGRectMake(20, 10, self.bodyBgView.width - 30, self.bodyBgView.height - 20);
         self.bottomView.frame = CGRectMake(10, self.bodyBgView.height - 35, self.bodyBgView.width-10, 35);

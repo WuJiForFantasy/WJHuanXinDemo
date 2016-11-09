@@ -12,4 +12,8 @@
 
 @property (nonatomic,strong)UIImageView *playStateView;//播放状态的View
 
+@property (nonatomic) NSArray *sendMessageVoiceAnimationImages UI_APPEARANCE_SELECTOR;
+
+@property (nonatomic) NSArray *recvMessageVoiceAnimationImages UI_APPEARANCE_SELECTOR;
+
 @end

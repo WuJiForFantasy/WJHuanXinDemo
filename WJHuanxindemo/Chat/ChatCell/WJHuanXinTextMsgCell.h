@@ -8,10 +8,12 @@
 
 #import "WJHuanXinChatBaseCell.h"
 #import "TTTAttributedLabel.h"
+#import "YYText.h"
 
 /**聊天cell的文本类*/
 @interface WJHuanXinTextMsgCell : WJHuanXinChatBaseCell
 
+@property (nonatomic,strong)YYLabel *contentLabel;
 @property (nonatomic,strong)TTTAttributedLabel *textView;//富文本
 
 @end

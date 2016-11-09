@@ -25,6 +25,8 @@ static CGFloat cellHeight = 0;//计算cell的高度，静态变量
  2.注意高度调用 [WJHuanXinChatBaseCell cellHeight]
  3.more~~~
  */
+@protocol WJHuanXinChatBaseCellDelegate;
+
 @interface WJHuanXinChatBaseCell : UITableViewCell
 
 @property (nonatomic,strong)EaseMessageModel *msg;          //环信聊天消息
@@ -38,6 +40,8 @@ static CGFloat cellHeight = 0;//计算cell的高度，静态变量
 @property (nonatomic,strong)UIButton *bodyBgView;    //文本区域
 @property (nonatomic,assign)CGFloat cellHeight;//高度属性
 
+@property (nonatomic,weak)id<WJHuanXinChatBaseCellDelegate>delegate;
+
 - (WJHuanXinBorderManager *)borderImageAndFrame;
 /**添加消息*/
 - (void)setIMMsg:(EaseMessageModel *)msg;
@@ -48,5 +52,21 @@ static CGFloat cellHeight = 0;//计算cell的高度，静态变量
 - (void)baseFrameLayout;
 //注意:cell的高度都用这个返回
 + (CGFloat)cellHeight;
+
+@end
+
+//cell上面的点击代理
+@protocol WJHuanXinChatBaseCellDelegate <NSObject>
+
+@optional
+
+//cell选中
+- (void)messageCellSelected:(id<IMessageModel>)model;
+
+//状态
+- (void)statusButtonSelcted:(id<IMessageModel>)model withMessageCell:(EaseMessageCell*)messageCell;
+
+//头像选中
+- (void)avatarViewSelcted:(id<IMessageModel>)model;
 
 @end

@@ -9,7 +9,7 @@
 #import "FriendListController.h"
 #import "FriendStore.h"
 #import "WJHuanXinChatBaseController.h"
-
+#import "WJHuanXinChatToolController.h"
 @interface FriendListController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong)UITableView *tableView;
@@ -80,7 +80,7 @@
 #pragma mark - others
 
 - (void)gotoChatController:(NSString *)string {
-    WJHuanXinChatBaseController *chat = [[WJHuanXinChatBaseController alloc]initWithConversationChatter:string conversationType:EMConversationTypeChat];
+    WJHuanXinChatToolController *chat = [[WJHuanXinChatToolController alloc]initWithConversationChatter:string conversationType:EMConversationTypeChat];
     [self.navigationController pushViewController:chat animated:YES];
 }
 

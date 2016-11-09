@@ -19,8 +19,51 @@
 		B95F3C481DD0284C0034914A /* MainController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B95F3C401DD0284C0034914A /* MainController.xib */; };
 		B95F3C4C1DD0286A0034914A /* WJHuanXinChatBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F3C4B1DD0286A0034914A /* WJHuanXinChatBaseController.m */; };
 		B95F3C4F1DD028B40034914A /* AppDelegate+WJHuanXin.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F3C4E1DD028B40034914A /* AppDelegate+WJHuanXin.m */; };
-		B9C56EC21DD2C26300A37843 /* 02.mov in Resources */ = {isa = PBXBuildFile; fileRef = B9C56EC11DD2C26300A37843 /* 02.mov */; };
 		B9C56EC41DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B9C56EC31DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 */; };
+		B9C56EC71DD329BF00A37843 /* WJHuanXinChatToolController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56EC61DD329BF00A37843 /* WJHuanXinChatToolController.m */; };
+		B9C56EE81DD32E3E00A37843 /* FaceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56ECC1DD32E3E00A37843 /* FaceButton.m */; };
+		B9C56EE91DD32E3E00A37843 /* FacePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56ECE1DD32E3E00A37843 /* FacePanel.m */; };
+		B9C56EEA1DD32E3E00A37843 /* FaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56ED01DD32E3E00A37843 /* FaceView.m */; };
+		B9C56EEB1DD32E3E00A37843 /* MiddleSizePageFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56ED21DD32E3E00A37843 /* MiddleSizePageFaceView.m */; };
+		B9C56EEC1DD32E3E00A37843 /* PanelBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56ED41DD32E3E00A37843 /* PanelBottomView.m */; };
+		B9C56EED1DD32E3E00A37843 /* SmallSizePageFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56ED61DD32E3E00A37843 /* SmallSizePageFaceView.m */; };
+		B9C56EEE1DD32E3E00A37843 /* FaceSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56ED81DD32E3E00A37843 /* FaceSourceManager.m */; };
+		B9C56EEF1DD32E3E00A37843 /* FaceSubjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56EDA1DD32E3E00A37843 /* FaceSubjectModel.m */; };
+		B9C56EF01DD32E3E00A37843 /* RFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56EDD1DD32E3E00A37843 /* RFTextView.m */; };
+		B9C56EF11DD32E3E00A37843 /* WJChatCommentToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56EDF1DD32E3E00A37843 /* WJChatCommentToolBar.m */; };
+		B9C56EF21DD32E3E00A37843 /* WJChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56EE11DD32E3E00A37843 /* WJChatToolBar.m */; };
+		B9C56EF31DD32E3E00A37843 /* WJChatToolBarItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56EE31DD32E3E00A37843 /* WJChatToolBarItemModel.m */; };
+		B9C56EF41DD32E3E00A37843 /* WJChatToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56EE51DD32E3E00A37843 /* WJChatToolCell.m */; };
+		B9C56EF51DD32E3E00A37843 /* WJChatKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56EE71DD32E3E00A37843 /* WJChatKeyBoard.m */; };
+		B9C56EF81DD3305500A37843 /* emotion.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9C56EF61DD3305500A37843 /* emotion.plist */; };
+		B9C56EF91DD3305500A37843 /* face.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9C56EF71DD3305500A37843 /* face.plist */; };
+		B9C56F321DD3536900A37843 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B9C56EFB1DD3536900A37843 /* LICENSE */; };
+		B9C56F331DD3536900A37843 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B9C56EFC1DD3536900A37843 /* README.md */; };
+		B9C56F341DD3536900A37843 /* YYTextContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F001DD3536900A37843 /* YYTextContainerView.m */; };
+		B9C56F351DD3536900A37843 /* YYTextDebugOption.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F021DD3536900A37843 /* YYTextDebugOption.m */; };
+		B9C56F361DD3536900A37843 /* YYTextEffectWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F041DD3536900A37843 /* YYTextEffectWindow.m */; };
+		B9C56F371DD3536900A37843 /* YYTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F061DD3536900A37843 /* YYTextInput.m */; };
+		B9C56F381DD3536900A37843 /* YYTextKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F081DD3536900A37843 /* YYTextKeyboardManager.m */; };
+		B9C56F391DD3536900A37843 /* YYTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F0A1DD3536900A37843 /* YYTextLayout.m */; };
+		B9C56F3A1DD3536900A37843 /* YYTextLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F0C1DD3536900A37843 /* YYTextLine.m */; };
+		B9C56F3B1DD3536900A37843 /* YYTextMagnifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F0E1DD3536900A37843 /* YYTextMagnifier.m */; };
+		B9C56F3C1DD3536900A37843 /* YYTextSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F101DD3536900A37843 /* YYTextSelectionView.m */; };
+		B9C56F3D1DD3536900A37843 /* YYTextArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F131DD3536900A37843 /* YYTextArchiver.m */; };
+		B9C56F3E1DD3536900A37843 /* YYTextAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F151DD3536900A37843 /* YYTextAttribute.m */; };
+		B9C56F3F1DD3536900A37843 /* YYTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F171DD3536900A37843 /* YYTextParser.m */; };
+		B9C56F401DD3536900A37843 /* YYTextRubyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F191DD3536900A37843 /* YYTextRubyAnnotation.m */; };
+		B9C56F411DD3536900A37843 /* YYTextRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F1B1DD3536900A37843 /* YYTextRunDelegate.m */; };
+		B9C56F421DD3536900A37843 /* NSAttributedString+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F1E1DD3536900A37843 /* NSAttributedString+YYText.m */; };
+		B9C56F431DD3536900A37843 /* NSParagraphStyle+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F201DD3536900A37843 /* NSParagraphStyle+YYText.m */; };
+		B9C56F441DD3536900A37843 /* UIPasteboard+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F221DD3536900A37843 /* UIPasteboard+YYText.m */; };
+		B9C56F451DD3536900A37843 /* UIView+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F241DD3536900A37843 /* UIView+YYText.m */; };
+		B9C56F461DD3536900A37843 /* YYTextAsyncLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F261DD3536900A37843 /* YYTextAsyncLayer.m */; };
+		B9C56F471DD3536900A37843 /* YYTextTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F281DD3536900A37843 /* YYTextTransaction.m */; };
+		B9C56F481DD3536900A37843 /* YYTextUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F2A1DD3536900A37843 /* YYTextUtilities.m */; };
+		B9C56F491DD3536900A37843 /* YYTextWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F2C1DD3536900A37843 /* YYTextWeakProxy.m */; };
+		B9C56F4A1DD3536900A37843 /* YYLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F2E1DD3536900A37843 /* YYLabel.m */; };
+		B9C56F4B1DD3536900A37843 /* YYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F311DD3536900A37843 /* YYTextView.m */; };
+		B9C56F4E1DD36B7600A37843 /* WJHuanXinChatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56F4D1DD36B7600A37843 /* WJHuanXinChatHelper.m */; };
 		B9C8906B1DD16C3100E60BC5 /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C890681DD16C3100E60BC5 /* FriendListController.m */; };
 		B9C8906C1DD16C3100E60BC5 /* FriendStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C8906A1DD16C3100E60BC5 /* FriendStore.m */; };
 		B9C8906F1DD16D4A00E60BC5 /* WJHuanXinChatBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C8906E1DD16D4A00E60BC5 /* WJHuanXinChatBaseCell.m */; };
@@ -220,8 +263,93 @@
 		B95F3C4D1DD028B40034914A /* AppDelegate+WJHuanXin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+WJHuanXin.h"; sourceTree = "<group>"; };
 		B95F3C4E1DD028B40034914A /* AppDelegate+WJHuanXin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+WJHuanXin.m"; sourceTree = "<group>"; };
 		B95F3DEE1DD02AE90034914A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		B9C56EC11DD2C26300A37843 /* 02.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 02.mov; sourceTree = "<group>"; };
 		B9C56EC31DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Maria Arredondo - Burning.mp3"; sourceTree = "<group>"; };
+		B9C56EC51DD329BF00A37843 /* WJHuanXinChatToolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHuanXinChatToolController.h; sourceTree = "<group>"; };
+		B9C56EC61DD329BF00A37843 /* WJHuanXinChatToolController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJHuanXinChatToolController.m; sourceTree = "<group>"; };
+		B9C56EC91DD32E3E00A37843 /* ChatKeyBoardMacroDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatKeyBoardMacroDefine.h; sourceTree = "<group>"; };
+		B9C56ECB1DD32E3E00A37843 /* FaceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceButton.h; sourceTree = "<group>"; };
+		B9C56ECC1DD32E3E00A37843 /* FaceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceButton.m; sourceTree = "<group>"; };
+		B9C56ECD1DD32E3E00A37843 /* FacePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacePanel.h; sourceTree = "<group>"; };
+		B9C56ECE1DD32E3E00A37843 /* FacePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacePanel.m; sourceTree = "<group>"; };
+		B9C56ECF1DD32E3E00A37843 /* FaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceView.h; sourceTree = "<group>"; };
+		B9C56ED01DD32E3E00A37843 /* FaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceView.m; sourceTree = "<group>"; };
+		B9C56ED11DD32E3E00A37843 /* MiddleSizePageFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleSizePageFaceView.h; sourceTree = "<group>"; };
+		B9C56ED21DD32E3E00A37843 /* MiddleSizePageFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiddleSizePageFaceView.m; sourceTree = "<group>"; };
+		B9C56ED31DD32E3E00A37843 /* PanelBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelBottomView.h; sourceTree = "<group>"; };
+		B9C56ED41DD32E3E00A37843 /* PanelBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelBottomView.m; sourceTree = "<group>"; };
+		B9C56ED51DD32E3E00A37843 /* SmallSizePageFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallSizePageFaceView.h; sourceTree = "<group>"; };
+		B9C56ED61DD32E3E00A37843 /* SmallSizePageFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallSizePageFaceView.m; sourceTree = "<group>"; };
+		B9C56ED71DD32E3E00A37843 /* FaceSourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceSourceManager.h; sourceTree = "<group>"; };
+		B9C56ED81DD32E3E00A37843 /* FaceSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceSourceManager.m; sourceTree = "<group>"; };
+		B9C56ED91DD32E3E00A37843 /* FaceSubjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceSubjectModel.h; sourceTree = "<group>"; };
+		B9C56EDA1DD32E3E00A37843 /* FaceSubjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceSubjectModel.m; sourceTree = "<group>"; };
+		B9C56EDC1DD32E3E00A37843 /* RFTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFTextView.h; sourceTree = "<group>"; };
+		B9C56EDD1DD32E3E00A37843 /* RFTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFTextView.m; sourceTree = "<group>"; };
+		B9C56EDE1DD32E3E00A37843 /* WJChatCommentToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJChatCommentToolBar.h; sourceTree = "<group>"; };
+		B9C56EDF1DD32E3E00A37843 /* WJChatCommentToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJChatCommentToolBar.m; sourceTree = "<group>"; };
+		B9C56EE01DD32E3E00A37843 /* WJChatToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJChatToolBar.h; sourceTree = "<group>"; };
+		B9C56EE11DD32E3E00A37843 /* WJChatToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJChatToolBar.m; sourceTree = "<group>"; };
+		B9C56EE21DD32E3E00A37843 /* WJChatToolBarItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJChatToolBarItemModel.h; sourceTree = "<group>"; };
+		B9C56EE31DD32E3E00A37843 /* WJChatToolBarItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJChatToolBarItemModel.m; sourceTree = "<group>"; };
+		B9C56EE41DD32E3E00A37843 /* WJChatToolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJChatToolCell.h; sourceTree = "<group>"; };
+		B9C56EE51DD32E3E00A37843 /* WJChatToolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJChatToolCell.m; sourceTree = "<group>"; };
+		B9C56EE61DD32E3E00A37843 /* WJChatKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJChatKeyBoard.h; sourceTree = "<group>"; };
+		B9C56EE71DD32E3E00A37843 /* WJChatKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJChatKeyBoard.m; sourceTree = "<group>"; };
+		B9C56EF61DD3305500A37843 /* emotion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emotion.plist; sourceTree = "<group>"; };
+		B9C56EF71DD3305500A37843 /* face.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = face.plist; sourceTree = "<group>"; };
+		B9C56EFB1DD3536900A37843 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		B9C56EFC1DD3536900A37843 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B9C56EFF1DD3536900A37843 /* YYTextContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextContainerView.h; sourceTree = "<group>"; };
+		B9C56F001DD3536900A37843 /* YYTextContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextContainerView.m; sourceTree = "<group>"; };
+		B9C56F011DD3536900A37843 /* YYTextDebugOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextDebugOption.h; sourceTree = "<group>"; };
+		B9C56F021DD3536900A37843 /* YYTextDebugOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextDebugOption.m; sourceTree = "<group>"; };
+		B9C56F031DD3536900A37843 /* YYTextEffectWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextEffectWindow.h; sourceTree = "<group>"; };
+		B9C56F041DD3536900A37843 /* YYTextEffectWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextEffectWindow.m; sourceTree = "<group>"; };
+		B9C56F051DD3536900A37843 /* YYTextInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextInput.h; sourceTree = "<group>"; };
+		B9C56F061DD3536900A37843 /* YYTextInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextInput.m; sourceTree = "<group>"; };
+		B9C56F071DD3536900A37843 /* YYTextKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextKeyboardManager.h; sourceTree = "<group>"; };
+		B9C56F081DD3536900A37843 /* YYTextKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextKeyboardManager.m; sourceTree = "<group>"; };
+		B9C56F091DD3536900A37843 /* YYTextLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextLayout.h; sourceTree = "<group>"; };
+		B9C56F0A1DD3536900A37843 /* YYTextLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextLayout.m; sourceTree = "<group>"; };
+		B9C56F0B1DD3536900A37843 /* YYTextLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextLine.h; sourceTree = "<group>"; };
+		B9C56F0C1DD3536900A37843 /* YYTextLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextLine.m; sourceTree = "<group>"; };
+		B9C56F0D1DD3536900A37843 /* YYTextMagnifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextMagnifier.h; sourceTree = "<group>"; };
+		B9C56F0E1DD3536900A37843 /* YYTextMagnifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextMagnifier.m; sourceTree = "<group>"; };
+		B9C56F0F1DD3536900A37843 /* YYTextSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextSelectionView.h; sourceTree = "<group>"; };
+		B9C56F101DD3536900A37843 /* YYTextSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextSelectionView.m; sourceTree = "<group>"; };
+		B9C56F121DD3536900A37843 /* YYTextArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextArchiver.h; sourceTree = "<group>"; };
+		B9C56F131DD3536900A37843 /* YYTextArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextArchiver.m; sourceTree = "<group>"; };
+		B9C56F141DD3536900A37843 /* YYTextAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextAttribute.h; sourceTree = "<group>"; };
+		B9C56F151DD3536900A37843 /* YYTextAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextAttribute.m; sourceTree = "<group>"; };
+		B9C56F161DD3536900A37843 /* YYTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextParser.h; sourceTree = "<group>"; };
+		B9C56F171DD3536900A37843 /* YYTextParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextParser.m; sourceTree = "<group>"; };
+		B9C56F181DD3536900A37843 /* YYTextRubyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextRubyAnnotation.h; sourceTree = "<group>"; };
+		B9C56F191DD3536900A37843 /* YYTextRubyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextRubyAnnotation.m; sourceTree = "<group>"; };
+		B9C56F1A1DD3536900A37843 /* YYTextRunDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextRunDelegate.h; sourceTree = "<group>"; };
+		B9C56F1B1DD3536900A37843 /* YYTextRunDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextRunDelegate.m; sourceTree = "<group>"; };
+		B9C56F1D1DD3536900A37843 /* NSAttributedString+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+YYText.h"; sourceTree = "<group>"; };
+		B9C56F1E1DD3536900A37843 /* NSAttributedString+YYText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+YYText.m"; sourceTree = "<group>"; };
+		B9C56F1F1DD3536900A37843 /* NSParagraphStyle+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSParagraphStyle+YYText.h"; sourceTree = "<group>"; };
+		B9C56F201DD3536900A37843 /* NSParagraphStyle+YYText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSParagraphStyle+YYText.m"; sourceTree = "<group>"; };
+		B9C56F211DD3536900A37843 /* UIPasteboard+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPasteboard+YYText.h"; sourceTree = "<group>"; };
+		B9C56F221DD3536900A37843 /* UIPasteboard+YYText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPasteboard+YYText.m"; sourceTree = "<group>"; };
+		B9C56F231DD3536900A37843 /* UIView+YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YYText.h"; sourceTree = "<group>"; };
+		B9C56F241DD3536900A37843 /* UIView+YYText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YYText.m"; sourceTree = "<group>"; };
+		B9C56F251DD3536900A37843 /* YYTextAsyncLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextAsyncLayer.h; sourceTree = "<group>"; };
+		B9C56F261DD3536900A37843 /* YYTextAsyncLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextAsyncLayer.m; sourceTree = "<group>"; };
+		B9C56F271DD3536900A37843 /* YYTextTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextTransaction.h; sourceTree = "<group>"; };
+		B9C56F281DD3536900A37843 /* YYTextTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextTransaction.m; sourceTree = "<group>"; };
+		B9C56F291DD3536900A37843 /* YYTextUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextUtilities.h; sourceTree = "<group>"; };
+		B9C56F2A1DD3536900A37843 /* YYTextUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextUtilities.m; sourceTree = "<group>"; };
+		B9C56F2B1DD3536900A37843 /* YYTextWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextWeakProxy.h; sourceTree = "<group>"; };
+		B9C56F2C1DD3536900A37843 /* YYTextWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextWeakProxy.m; sourceTree = "<group>"; };
+		B9C56F2D1DD3536900A37843 /* YYLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYLabel.h; sourceTree = "<group>"; };
+		B9C56F2E1DD3536900A37843 /* YYLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYLabel.m; sourceTree = "<group>"; };
+		B9C56F2F1DD3536900A37843 /* YYText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYText.h; sourceTree = "<group>"; };
+		B9C56F301DD3536900A37843 /* YYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextView.h; sourceTree = "<group>"; };
+		B9C56F311DD3536900A37843 /* YYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextView.m; sourceTree = "<group>"; };
+		B9C56F4C1DD36B7600A37843 /* WJHuanXinChatHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHuanXinChatHelper.h; sourceTree = "<group>"; };
+		B9C56F4D1DD36B7600A37843 /* WJHuanXinChatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJHuanXinChatHelper.m; sourceTree = "<group>"; };
 		B9C890671DD16C3100E60BC5 /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListController.h; sourceTree = "<group>"; };
 		B9C890681DD16C3100E60BC5 /* FriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListController.m; sourceTree = "<group>"; };
 		B9C890691DD16C3100E60BC5 /* FriendStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendStore.h; sourceTree = "<group>"; };
@@ -611,8 +739,11 @@
 		B95F3BE91DD0238C0034914A /* WJHuanxindemo */ = {
 			isa = PBXGroup;
 			children = (
+				B9C56EFA1DD3536900A37843 /* YYText */,
+				B9C56EF61DD3305500A37843 /* emotion.plist */,
+				B9C56EF71DD3305500A37843 /* face.plist */,
+				B9C56EC81DD32E3E00A37843 /* WJChatKeyBoard */,
 				B9C56EC31DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 */,
-				B9C56EC11DD2C26300A37843 /* 02.mov */,
 				B9C890AF1DD1CBC700E60BC5 /* WJAdditions */,
 				B9C890701DD16DFA00E60BC5 /* MoyouSmallIconText.h */,
 				B9C890711DD16DFA00E60BC5 /* MoyouSmallIconText.m */,
@@ -682,12 +813,156 @@
 				B9C890651DD16C0100E60BC5 /* ChatCell */,
 				B95F3C4A1DD0286A0034914A /* WJHuanXinChatBaseController.h */,
 				B95F3C4B1DD0286A0034914A /* WJHuanXinChatBaseController.m */,
+				B9C56EC51DD329BF00A37843 /* WJHuanXinChatToolController.h */,
+				B9C56EC61DD329BF00A37843 /* WJHuanXinChatToolController.m */,
 				B9C890A91DD1A61900E60BC5 /* WJHuanXinChatStore.h */,
 				B9C890AA1DD1A61900E60BC5 /* WJHuanXinChatStore.m */,
 				B9C890AC1DD1B84600E60BC5 /* WJHuanXinChatMsgModel.h */,
 				B9C890AD1DD1B84600E60BC5 /* WJHuanXinChatMsgModel.m */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		B9C56EC81DD32E3E00A37843 /* WJChatKeyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				B9C56EC91DD32E3E00A37843 /* ChatKeyBoardMacroDefine.h */,
+				B9C56ECA1DD32E3E00A37843 /* FacePanel */,
+				B9C56ED71DD32E3E00A37843 /* FaceSourceManager.h */,
+				B9C56ED81DD32E3E00A37843 /* FaceSourceManager.m */,
+				B9C56ED91DD32E3E00A37843 /* FaceSubjectModel.h */,
+				B9C56EDA1DD32E3E00A37843 /* FaceSubjectModel.m */,
+				B9C56EDB1DD32E3E00A37843 /* ToolBarPanel */,
+				B9C56EE61DD32E3E00A37843 /* WJChatKeyBoard.h */,
+				B9C56EE71DD32E3E00A37843 /* WJChatKeyBoard.m */,
+			);
+			path = WJChatKeyBoard;
+			sourceTree = "<group>";
+		};
+		B9C56ECA1DD32E3E00A37843 /* FacePanel */ = {
+			isa = PBXGroup;
+			children = (
+				B9C56ECB1DD32E3E00A37843 /* FaceButton.h */,
+				B9C56ECC1DD32E3E00A37843 /* FaceButton.m */,
+				B9C56ECD1DD32E3E00A37843 /* FacePanel.h */,
+				B9C56ECE1DD32E3E00A37843 /* FacePanel.m */,
+				B9C56ECF1DD32E3E00A37843 /* FaceView.h */,
+				B9C56ED01DD32E3E00A37843 /* FaceView.m */,
+				B9C56ED11DD32E3E00A37843 /* MiddleSizePageFaceView.h */,
+				B9C56ED21DD32E3E00A37843 /* MiddleSizePageFaceView.m */,
+				B9C56ED31DD32E3E00A37843 /* PanelBottomView.h */,
+				B9C56ED41DD32E3E00A37843 /* PanelBottomView.m */,
+				B9C56ED51DD32E3E00A37843 /* SmallSizePageFaceView.h */,
+				B9C56ED61DD32E3E00A37843 /* SmallSizePageFaceView.m */,
+			);
+			path = FacePanel;
+			sourceTree = "<group>";
+		};
+		B9C56EDB1DD32E3E00A37843 /* ToolBarPanel */ = {
+			isa = PBXGroup;
+			children = (
+				B9C56EDC1DD32E3E00A37843 /* RFTextView.h */,
+				B9C56EDD1DD32E3E00A37843 /* RFTextView.m */,
+				B9C56EDE1DD32E3E00A37843 /* WJChatCommentToolBar.h */,
+				B9C56EDF1DD32E3E00A37843 /* WJChatCommentToolBar.m */,
+				B9C56EE01DD32E3E00A37843 /* WJChatToolBar.h */,
+				B9C56EE11DD32E3E00A37843 /* WJChatToolBar.m */,
+				B9C56EE21DD32E3E00A37843 /* WJChatToolBarItemModel.h */,
+				B9C56EE31DD32E3E00A37843 /* WJChatToolBarItemModel.m */,
+				B9C56EE41DD32E3E00A37843 /* WJChatToolCell.h */,
+				B9C56EE51DD32E3E00A37843 /* WJChatToolCell.m */,
+			);
+			path = ToolBarPanel;
+			sourceTree = "<group>";
+		};
+		B9C56EFA1DD3536900A37843 /* YYText */ = {
+			isa = PBXGroup;
+			children = (
+				B9C56EFB1DD3536900A37843 /* LICENSE */,
+				B9C56EFC1DD3536900A37843 /* README.md */,
+				B9C56EFD1DD3536900A37843 /* YYText */,
+			);
+			path = YYText;
+			sourceTree = "<group>";
+		};
+		B9C56EFD1DD3536900A37843 /* YYText */ = {
+			isa = PBXGroup;
+			children = (
+				B9C56EFE1DD3536900A37843 /* Component */,
+				B9C56F111DD3536900A37843 /* String */,
+				B9C56F1C1DD3536900A37843 /* Utility */,
+				B9C56F2D1DD3536900A37843 /* YYLabel.h */,
+				B9C56F2E1DD3536900A37843 /* YYLabel.m */,
+				B9C56F2F1DD3536900A37843 /* YYText.h */,
+				B9C56F301DD3536900A37843 /* YYTextView.h */,
+				B9C56F311DD3536900A37843 /* YYTextView.m */,
+			);
+			path = YYText;
+			sourceTree = "<group>";
+		};
+		B9C56EFE1DD3536900A37843 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B9C56EFF1DD3536900A37843 /* YYTextContainerView.h */,
+				B9C56F001DD3536900A37843 /* YYTextContainerView.m */,
+				B9C56F011DD3536900A37843 /* YYTextDebugOption.h */,
+				B9C56F021DD3536900A37843 /* YYTextDebugOption.m */,
+				B9C56F031DD3536900A37843 /* YYTextEffectWindow.h */,
+				B9C56F041DD3536900A37843 /* YYTextEffectWindow.m */,
+				B9C56F051DD3536900A37843 /* YYTextInput.h */,
+				B9C56F061DD3536900A37843 /* YYTextInput.m */,
+				B9C56F071DD3536900A37843 /* YYTextKeyboardManager.h */,
+				B9C56F081DD3536900A37843 /* YYTextKeyboardManager.m */,
+				B9C56F091DD3536900A37843 /* YYTextLayout.h */,
+				B9C56F0A1DD3536900A37843 /* YYTextLayout.m */,
+				B9C56F0B1DD3536900A37843 /* YYTextLine.h */,
+				B9C56F0C1DD3536900A37843 /* YYTextLine.m */,
+				B9C56F0D1DD3536900A37843 /* YYTextMagnifier.h */,
+				B9C56F0E1DD3536900A37843 /* YYTextMagnifier.m */,
+				B9C56F0F1DD3536900A37843 /* YYTextSelectionView.h */,
+				B9C56F101DD3536900A37843 /* YYTextSelectionView.m */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		B9C56F111DD3536900A37843 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				B9C56F121DD3536900A37843 /* YYTextArchiver.h */,
+				B9C56F131DD3536900A37843 /* YYTextArchiver.m */,
+				B9C56F141DD3536900A37843 /* YYTextAttribute.h */,
+				B9C56F151DD3536900A37843 /* YYTextAttribute.m */,
+				B9C56F161DD3536900A37843 /* YYTextParser.h */,
+				B9C56F171DD3536900A37843 /* YYTextParser.m */,
+				B9C56F181DD3536900A37843 /* YYTextRubyAnnotation.h */,
+				B9C56F191DD3536900A37843 /* YYTextRubyAnnotation.m */,
+				B9C56F1A1DD3536900A37843 /* YYTextRunDelegate.h */,
+				B9C56F1B1DD3536900A37843 /* YYTextRunDelegate.m */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		B9C56F1C1DD3536900A37843 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				B9C56F1D1DD3536900A37843 /* NSAttributedString+YYText.h */,
+				B9C56F1E1DD3536900A37843 /* NSAttributedString+YYText.m */,
+				B9C56F1F1DD3536900A37843 /* NSParagraphStyle+YYText.h */,
+				B9C56F201DD3536900A37843 /* NSParagraphStyle+YYText.m */,
+				B9C56F211DD3536900A37843 /* UIPasteboard+YYText.h */,
+				B9C56F221DD3536900A37843 /* UIPasteboard+YYText.m */,
+				B9C56F231DD3536900A37843 /* UIView+YYText.h */,
+				B9C56F241DD3536900A37843 /* UIView+YYText.m */,
+				B9C56F251DD3536900A37843 /* YYTextAsyncLayer.h */,
+				B9C56F261DD3536900A37843 /* YYTextAsyncLayer.m */,
+				B9C56F271DD3536900A37843 /* YYTextTransaction.h */,
+				B9C56F281DD3536900A37843 /* YYTextTransaction.m */,
+				B9C56F291DD3536900A37843 /* YYTextUtilities.h */,
+				B9C56F2A1DD3536900A37843 /* YYTextUtilities.m */,
+				B9C56F2B1DD3536900A37843 /* YYTextWeakProxy.h */,
+				B9C56F2C1DD3536900A37843 /* YYTextWeakProxy.m */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		B9C890651DD16C0100E60BC5 /* ChatCell */ = {
@@ -739,6 +1014,8 @@
 		B9C890831DD177EC00E60BC5 /* WJIMBorder */ = {
 			isa = PBXGroup;
 			children = (
+				B9C56F4C1DD36B7600A37843 /* WJHuanXinChatHelper.h */,
+				B9C56F4D1DD36B7600A37843 /* WJHuanXinChatHelper.m */,
 				B9C8908D1DD1787B00E60BC5 /* WJHuanXinBorderManager.h */,
 				B9C8908E1DD1787B00E60BC5 /* WJHuanXinBorderManager.m */,
 				B9C890901DD1788B00E60BC5 /* WJHuanXinBorderInfo.h */,
@@ -1527,10 +1804,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9C56EC21DD2C26300A37843 /* 02.mov in Resources */,
 				B95F3BFA1DD0238C0034914A /* LaunchScreen.storyboard in Resources */,
 				B95F3BF71DD0238C0034914A /* Assets.xcassets in Resources */,
 				B95F3BF51DD0238C0034914A /* Main.storyboard in Resources */,
+				B9C56EF91DD3305500A37843 /* face.plist in Resources */,
+				B9C56EF81DD3305500A37843 /* emotion.plist in Resources */,
+				B9C56F321DD3536900A37843 /* LICENSE in Resources */,
 				B95F3C481DD0284C0034914A /* MainController.xib in Resources */,
 				B9ED8CEB1DD0AFA100986ACD /* MWPhotoBrowser.bundle in Resources */,
 				B9ED8CC01DD0AFA100986ACD /* MJRefresh.bundle in Resources */,
@@ -1608,6 +1887,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9C56EEB1DD32E3E00A37843 /* MiddleSizePageFaceView.m in Sources */,
+				B9C56F401DD3536900A37843 /* YYTextRubyAnnotation.m in Sources */,
 				B9ED8D0B1DD0AFA200986ACD /* EaseBubbleView+Location.m in Sources */,
 				B9C890C61DD1CBC700E60BC5 /* NSDictionary+WJAdditions.m in Sources */,
 				B9ED8CDD1DD0AFA100986ACD /* UIView+EMWebCacheOperation.m in Sources */,
@@ -1617,15 +1898,19 @@
 				B9ED8D181DD0AFA200986ACD /* EaseConversationCell.m in Sources */,
 				B9ED8D091DD0AFA200986ACD /* EaseBubbleView+Gif.m in Sources */,
 				B9ED8CB91DD0AFA100986ACD /* MJRefreshAutoStateFooter.m in Sources */,
+				B9C56F421DD3536900A37843 /* NSAttributedString+YYText.m in Sources */,
+				B9C56F341DD3536900A37843 /* YYTextContainerView.m in Sources */,
 				B9ED8CDB1DD0AFA100986ACD /* UIImageView+EMHighlightedWebCache.m in Sources */,
 				B9C890C41DD1CBC700E60BC5 /* NSData+WJAdditions.m in Sources */,
 				B9ED8CC41DD0AFA100986ACD /* UIView+MJExtension.m in Sources */,
 				B9C890C81DD1CBC700E60BC5 /* NSString+WJAdditions.m in Sources */,
 				B9ED8CA41DD0AFA100986ACD /* EMAudioPlayerUtil.m in Sources */,
 				B9ED8CA71DD0AFA100986ACD /* EMCDDeviceManager+Microphone.m in Sources */,
+				B9C56F471DD3536900A37843 /* YYTextTransaction.m in Sources */,
 				B9ED8CC91DD0AFA100986ACD /* MWPhotoBrowser.m in Sources */,
 				B9C890AE1DD1B84600E60BC5 /* WJHuanXinChatMsgModel.m in Sources */,
 				B9C890C91DD1CBC700E60BC5 /* UIAlertController+Blocks.m in Sources */,
+				B9C56F481DD3536900A37843 /* YYTextUtilities.m in Sources */,
 				B9ED8CC11DD0AFA100986ACD /* MJRefreshConst.m in Sources */,
 				B95F3BEF1DD0238C0034914A /* AppDelegate.m in Sources */,
 				B9ED8CA61DD0AFA100986ACD /* EMCDDeviceManager+Media.m in Sources */,
@@ -1637,34 +1922,44 @@
 				B9C890821DD176C500E60BC5 /* TTTAttributedLabel.m in Sources */,
 				B9ED8CF41DD0AFA200986ACD /* UIViewController+HUD.m in Sources */,
 				B9ED8CB11DD0AFA100986ACD /* MBProgressHUD.m in Sources */,
+				B9C56EED1DD32E3E00A37843 /* SmallSizePageFaceView.m in Sources */,
+				B9C56F4A1DD3536900A37843 /* YYLabel.m in Sources */,
 				B9ED8CE11DD0AFA100986ACD /* PSTCollectionViewController.m in Sources */,
 				B9ED8CED1DD0AFA100986ACD /* EaseConversationModel.m in Sources */,
 				B9EC267F1DD06B22004BA7D9 /* WJHuanXinConversationCell.m in Sources */,
 				B9EC26731DD06203004BA7D9 /* WJHuanXinConversationListController.m in Sources */,
 				B9ED8B6A1DD09F3100986ACD /* WJHuanXinChatHelper.m in Sources */,
+				B9C56EF31DD32E3E00A37843 /* WJChatToolBarItemModel.m in Sources */,
 				B9ED8CA51DD0AFA100986ACD /* EMAudioRecorderUtil.m in Sources */,
 				B9ED8CCD1DD0AFA100986ACD /* DACircularProgressView.m in Sources */,
 				B9C8906B1DD16C3100E60BC5 /* FriendListController.m in Sources */,
 				B9ED8CB61DD0AFA100986ACD /* MJRefreshHeader.m in Sources */,
 				B9ED8D1C1DD0AFA200986ACD /* MGSwipeTableCell.m in Sources */,
 				B9C890811DD176C500E60BC5 /* NSAttributedString+Attributes.m in Sources */,
+				B9C56F3E1DD3536900A37843 /* YYTextAttribute.m in Sources */,
+				B9C56F3F1DD3536900A37843 /* YYTextParser.m in Sources */,
 				B9C890721DD16DFA00E60BC5 /* MoyouSmallIconText.m in Sources */,
 				B9ED8CE21DD0AFA100986ACD /* PSTCollectionViewData.m in Sources */,
+				B9C56EF21DD32E3E00A37843 /* WJChatToolBar.m in Sources */,
 				B9ED8CC71DD0AFA100986ACD /* MWGridViewController.m in Sources */,
 				B9ED8CBB1DD0AFA100986ACD /* MJRefreshBackNormalFooter.m in Sources */,
+				B9C56F3B1DD3536900A37843 /* YYTextMagnifier.m in Sources */,
 				B9ED8CC51DD0AFA100986ACD /* MWCaptionView.m in Sources */,
 				B9ED8D041DD0AFA200986ACD /* EaseBaseMessageCell.m in Sources */,
 				B95F3C4C1DD0286A0034914A /* WJHuanXinChatBaseController.m in Sources */,
 				B9ED8CE91DD0AFA100986ACD /* PSTGridLayoutRow.m in Sources */,
+				B9C56F381DD3536900A37843 /* YYTextKeyboardManager.m in Sources */,
 				B9ED8D161DD0AFA200986ACD /* EaseChatBarMoreView.m in Sources */,
 				B9ED8CFE1DD0AFA200986ACD /* EaseLocationViewController.m in Sources */,
 				B9C890CB1DD1CBC700E60BC5 /* UIView+Extension.m in Sources */,
 				B9ED8D0C1DD0AFA200986ACD /* EaseBubbleView+Text.m in Sources */,
 				B9ED8CE61DD0AFA100986ACD /* PSTCollectionViewUpdateItem.m in Sources */,
 				B9ED8CD11DD0AFA100986ACD /* EMSDWebImageDownloader.m in Sources */,
+				B9C56EE91DD32E3E00A37843 /* FacePanel.m in Sources */,
 				B9C890C51DD1CBC700E60BC5 /* NSDate+WJAdditions.m in Sources */,
 				B9ED8CEE1DD0AFA100986ACD /* EaseMessageModel.m in Sources */,
 				B9ED8CE41DD0AFA100986ACD /* PSTCollectionViewItemKey.m in Sources */,
+				B9C56F331DD3536900A37843 /* README.md in Sources */,
 				B9ED8D1A1DD0AFA200986ACD /* HexColors.m in Sources */,
 				B9ED8CFB1DD0AFA200986ACD /* EaseEmotionManager.m in Sources */,
 				B9ED8CD71DD0AFA100986ACD /* UIButton+EMWebCache.m in Sources */,
@@ -1672,11 +1967,13 @@
 				B9ED8CBE1DD0AFA100986ACD /* MJRefreshNormalHeader.m in Sources */,
 				B9ED8CE31DD0AFA100986ACD /* PSTCollectionViewFlowLayout.m in Sources */,
 				B9ED8D0D1DD0AFA200986ACD /* EaseBubbleView+Video.m in Sources */,
+				B9C56EF01DD32E3E00A37843 /* RFTextView.m in Sources */,
 				B9ED8CCF1DD0AFA100986ACD /* EMSDWebImageCompat.m in Sources */,
 				B9C890C71DD1CBC700E60BC5 /* NSObject+WJAdditions.m in Sources */,
 				B9ED8CC81DD0AFA100986ACD /* MWPhoto.m in Sources */,
 				B9ED8D1B1DD0AFA200986ACD /* MGSwipeButton.m in Sources */,
 				B9C890781DD173FE00E60BC5 /* UIView+IM.m in Sources */,
+				B9C56EF51DD32E3E00A37843 /* WJChatKeyBoard.m in Sources */,
 				B9ED8D081DD0AFA200986ACD /* EaseBubbleView+File.m in Sources */,
 				B9C890A51DD1A42E00E60BC5 /* AssembleMsgTool.m in Sources */,
 				B9ED8CBD1DD0AFA100986ACD /* MJRefreshGifHeader.m in Sources */,
@@ -1685,6 +1982,7 @@
 				B9ED8D131DD0AFA200986ACD /* EaseTextView.m in Sources */,
 				B9ED8CAC1DD0AFA100986ACD /* wav.mm in Sources */,
 				B9ED8CA91DD0AFA100986ACD /* EMCDDeviceManager+Remind.m in Sources */,
+				B9C56F3C1DD3536900A37843 /* YYTextSelectionView.m in Sources */,
 				B9ED8CE01DD0AFA100986ACD /* PSTCollectionViewCell.m in Sources */,
 				B9ED8CDF1DD0AFA100986ACD /* PSTCollectionView.m in Sources */,
 				B9ED8CA31DD0AFA100986ACD /* EaseUI.m in Sources */,
@@ -1692,16 +1990,24 @@
 				B9ED8CBC1DD0AFA100986ACD /* MJRefreshBackStateFooter.m in Sources */,
 				B9C8907B1DD1758700E60BC5 /* WJHuanXinTextMsgCell.m in Sources */,
 				B9ED8CC61DD0AFA100986ACD /* MWGridCell.m in Sources */,
+				B9C56F351DD3536900A37843 /* YYTextDebugOption.m in Sources */,
 				B9ED8CC31DD0AFA100986ACD /* UIScrollView+MJRefresh.m in Sources */,
+				B9C56F411DD3536900A37843 /* YYTextRunDelegate.m in Sources */,
+				B9C56F461DD3536900A37843 /* YYTextAsyncLayer.m in Sources */,
 				B9ED8CE71DD0AFA100986ACD /* PSTGridLayoutInfo.m in Sources */,
 				B9ED8CDE1DD0AFA100986ACD /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
+				B9C56F371DD3536900A37843 /* YYTextInput.m in Sources */,
+				B9C56F491DD3536900A37843 /* YYTextWeakProxy.m in Sources */,
+				B9C56F441DD3536900A37843 /* UIPasteboard+YYText.m in Sources */,
 				B95F3BEC1DD0238C0034914A /* main.m in Sources */,
 				B9ED8CCE1DD0AFA100986ACD /* EMSDImageCache.m in Sources */,
 				B9ED8D001DD0AFA200986ACD /* EaseRefreshTableViewController.m in Sources */,
 				B9ED8CD01DD0AFA100986ACD /* EMSDWebImageDecoder.m in Sources */,
 				B9C890921DD1788B00E60BC5 /* WJHuanXinBorderInfo.m in Sources */,
+				B9C56EF41DD32E3E00A37843 /* WJChatToolCell.m in Sources */,
 				B9ED8D111DD0AFA200986ACD /* EaseChatToolbarItem.m in Sources */,
 				B9ED8CB71DD0AFA100986ACD /* MJRefreshAutoGifFooter.m in Sources */,
+				B9C56EEE1DD32E3E00A37843 /* FaceSourceManager.m in Sources */,
 				B9ED8CB31DD0AFA100986ACD /* MJRefreshBackFooter.m in Sources */,
 				B9ED8D011DD0AFA200986ACD /* EaseUsersListViewController.m in Sources */,
 				B9ED8CA81DD0AFA100986ACD /* EMCDDeviceManager+ProximitySensor.m in Sources */,
@@ -1714,11 +2020,15 @@
 				B9ED8CFD1DD0AFA200986ACD /* EaseConversationListViewController.m in Sources */,
 				B9ED8D031DD0AFA200986ACD /* EaseUserCell.m in Sources */,
 				B9ED8CD21DD0AFA100986ACD /* EMSDWebImageDownloaderOperation.m in Sources */,
+				B9C56EEC1DD32E3E00A37843 /* PanelBottomView.m in Sources */,
 				B9ED8D0E1DD0AFA200986ACD /* EaseBubbleView+Voice.m in Sources */,
 				B9ED8CF91DD0AFA200986ACD /* EaseEmojiEmoticons.m in Sources */,
 				B9ED8CE51DD0AFA100986ACD /* PSTCollectionViewLayout.m in Sources */,
+				B9C56F3A1DD3536900A37843 /* YYTextLine.m in Sources */,
 				B9ED8CF11DD0AFA100986ACD /* NSDateFormatter+Category.m in Sources */,
+				B9C56EE81DD32E3E00A37843 /* FaceButton.m in Sources */,
 				B9ED8CFA1DD0AFA200986ACD /* EaseEmotionEscape.m in Sources */,
+				B9C56EF11DD32E3E00A37843 /* WJChatCommentToolBar.m in Sources */,
 				B9C8909E1DD19EDF00E60BC5 /* WJHuanXinChatMsgCellUtil.m in Sources */,
 				B9C8906C1DD16C3100E60BC5 /* FriendStore.m in Sources */,
 				B9ED8CFC1DD0AFA200986ACD /* FixFopen.c in Sources */,
@@ -1726,6 +2036,7 @@
 				B9ED8CB21DD0AFA100986ACD /* MJRefreshAutoFooter.m in Sources */,
 				B9ED8D0F1DD0AFA200986ACD /* EaseBubbleView.m in Sources */,
 				B9C890981DD1806E00E60BC5 /* WJHuanXinVideoMsgCell.m in Sources */,
+				B9C56EEF1DD32E3E00A37843 /* FaceSubjectModel.m in Sources */,
 				B9ED8CAA1DD0AFA100986ACD /* EMCDDeviceManagerBase.m in Sources */,
 				B9ED8CEA1DD0AFA100986ACD /* PSTGridLayoutSection.m in Sources */,
 				B9ED8CD31DD0AFA100986ACD /* EMSDWebImageManager.m in Sources */,
@@ -1741,26 +2052,35 @@
 				B9ED8CBF1DD0AFA100986ACD /* MJRefreshStateHeader.m in Sources */,
 				B9ED8CEF1DD0AFA100986ACD /* EaseUserModel.m in Sources */,
 				B9ED8CB51DD0AFA100986ACD /* MJRefreshFooter.m in Sources */,
+				B9C56F3D1DD3536900A37843 /* YYTextArchiver.m in Sources */,
 				B9C8908F1DD1787B00E60BC5 /* WJHuanXinBorderManager.m in Sources */,
 				B9ED8CD91DD0AFA100986ACD /* UIImage+EMMultiFormat.m in Sources */,
+				B9C56EC71DD329BF00A37843 /* WJHuanXinChatToolController.m in Sources */,
 				B9ED8CF61DD0AFA200986ACD /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
 				B9ED8D051DD0AFA200986ACD /* EaseCustomMessageCell.m in Sources */,
 				B9ED8CDC1DD0AFA100986ACD /* UIImageView+EMWebCache.m in Sources */,
 				B9ED8D141DD0AFA200986ACD /* EaseFaceView.m in Sources */,
 				B9EC26761DD06441004BA7D9 /* WJHuanXinConversationModel.m in Sources */,
+				B9C56F431DD3536900A37843 /* NSParagraphStyle+YYText.m in Sources */,
+				B9C56EEA1DD32E3E00A37843 /* FaceView.m in Sources */,
 				B9C890A11DD1A0AC00E60BC5 /* WJHuanXinAudioMsgCell.m in Sources */,
 				B9ED8CAD1DD0AFA100986ACD /* EMVoiceConverter.mm in Sources */,
+				B9C56F451DD3536900A37843 /* UIView+YYText.m in Sources */,
 				B9ED8CC21DD0AFA100986ACD /* UIScrollView+MJExtension.m in Sources */,
 				B9ED8CE81DD0AFA100986ACD /* PSTGridLayoutItem.m in Sources */,
+				B9C56F4E1DD36B7600A37843 /* WJHuanXinChatHelper.m in Sources */,
 				B9ED8D171DD0AFA200986ACD /* EaseRecordView.m in Sources */,
 				B9ED8CF51DD0AFA200986ACD /* EaseChineseToPinyin.m in Sources */,
 				B9C890CA1DD1CBC700E60BC5 /* UIImage+WJAdditions.m in Sources */,
+				B9C56F361DD3536900A37843 /* YYTextEffectWindow.m in Sources */,
 				B9ED8D101DD0AFA200986ACD /* EaseChatToolbar.m in Sources */,
 				B9ED8CB41DD0AFA100986ACD /* MJRefreshComponent.m in Sources */,
 				B9EC26791DD067F6004BA7D9 /* WJHuanXinConversationStore.m in Sources */,
 				B9ED8CCB1DD0AFA100986ACD /* MWTapDetectingView.m in Sources */,
 				B9ED8CDA1DD0AFA100986ACD /* UIImage+EMWebP.m in Sources */,
 				B9ED8CCC1DD0AFA100986ACD /* MWZoomingScrollView.m in Sources */,
+				B9C56F4B1DD3536900A37843 /* YYTextView.m in Sources */,
+				B9C56F391DD3536900A37843 /* YYTextLayout.m in Sources */,
 				B9ED8CF71DD0AFA200986ACD /* EaseMessageReadManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

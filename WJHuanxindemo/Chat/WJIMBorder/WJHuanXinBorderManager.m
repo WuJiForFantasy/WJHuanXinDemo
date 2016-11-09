@@ -9,6 +9,7 @@
 #import "WJHuanXinBorderManager.h"
 #import "WJHuanXinBorderInfo.h"
 #import "TTTAttributedLabel.h"
+#import "YYText.h"
 
 @interface WJHuanXinBorderManager ()
 
@@ -43,19 +44,55 @@
         self.msg = msg;
         //计算frame方法
         if (msg.bodyType == EMMessageBodyTypeText) {
-            TTTAttributedLabel *textView = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
-            textView.userInteractionEnabled = NO;
-            textView.backgroundColor = [UIColor clearColor];
-            textView.lineBreakMode = NSLineBreakByCharWrapping;
-            textView.numberOfLines = 0;
-            textView.leading = 5;
-            textView.verticalAlignment = TTTAttributedLabelVerticalAlignmentCenter;
-            textView.highlightedTextColor = [UIColor whiteColor];
-            textView.font = WJIMTextMsgCellTextFont;
             
-            [textView setText:@"测试测试测试测试"];
-            CGRect rect = [textView.attributedText boundingRectWithSize:CGSizeMake(WJCHAT_CELL_CONTENT_MAXWIDTH-20, 1000) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+            YYTextSimpleEmoticonParser *parser = [YYTextSimpleEmoticonParser new];
+            NSMutableDictionary *mapper = [NSMutableDictionary new];
+            mapper[@"[大笑]"] = [UIImage imageNamed:@"smile.png"];
             
+//            //        mapper[@":cool:"] = [UIImage imageNamed:@"cool.png"];
+//            //        mapper[@":cry:"] = [UIImage imageNamed:@"cry.png"];
+//            //        mapper[@":wink:"] = [UIImage imageNamed:@"wink.png"];
+//            //        parser.emoticonMapper = mapper;
+            
+            YYLabel *label = [[YYLabel alloc]initWithFrame:CGRectMake(0, 0, WJCHAT_CELL_CONTENT_MAXWIDTH-20, 20)];
+            label.text = msg.text;
+            label.font = [UIFont systemFontOfSize:14];
+            label.textParser = parser;
+            label.numberOfLines = 0;
+            [label sizeToFit];
+            CGRect rect = CGRectMake(0, 0, label.width, label.height);
+//            CGRect rect = label.textLayout.textBoundingRect;
+           
+//            NSAttributedString *text = [[NSAttributedString alloc]initWithString:msg.text];
+//            CGSize size = CGSizeMake(WJCHAT_CELL_CONTENT_MAXWIDTH-20, CGFLOAT_MAX);
+//            YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:size text:text];
+            
+//
+////            TTTAttributedLabel *textView = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
+////            textView.userInteractionEnabled = NO;
+////            textView.backgroundColor = [UIColor clearColor];
+////            textView.lineBreakMode = NSLineBreakByCharWrapping;
+////            textView.numberOfLines = 0;
+////            textView.leading = 5;
+////            textView.verticalAlignment = TTTAttributedLabelVerticalAlignmentCenter;
+////            textView.highlightedTextColor = [UIColor whiteColor];
+////            textView.font = WJIMTextMsgCellTextFont;
+////            
+////            [textView setText:msg.text];
+//            
+////            CGRect rect = [textView.attributedText boundingRectWithSize:CGSizeMake(WJCHAT_CELL_CONTENT_MAXWIDTH-20, 1000) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+//
+            // 完全控制:
+//            YYTextLinePositionSimpleModifier *modifier = [YYTextLinePositionSimpleModifier new];
+//            modifier.fixedLineHeight = 24;
+//            
+//            YYTextContainer *container = [YYTextContainer new];
+//            container.size = CGSizeMake(100, CGFLOAT_MAX);
+//            container.linePositionModifier = modifier;
+//            
+//            YYTextLayout *layout = [YYTextLayout layoutWithContainer:container text:msg.text];
+            
+//            CGRect rect  = CGRectMake(0, 0, 150, 80);
             self.labelWidth = rect.size.width;
             self.labelHeight = rect.size.height+5;
             

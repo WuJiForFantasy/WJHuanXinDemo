@@ -31,7 +31,6 @@
 - (UIImageView *)playStateView {
     if (!_playStateView) {
         _playStateView = [UIImageView new];
-        _playStateView.image = [UIImage imageNamed:@"message_ic_voice"];
         _playStateView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _playStateView;
@@ -43,13 +42,12 @@
         _label.text = @"01'19'";
         _label.textAlignment = NSTextAlignmentCenter;
         _label.font = [UIFont systemFontOfSize:16];
-//        _label.textColor = [MoyouColor colorWithdefalutColor];
         _label.textColor = [UIColor redColor];
     }
     return _label;
 }
 
-- (void)setIMMsg:(EMMessage *)msg {
+- (void)setIMMsg:(EaseMessageModel *)msg {
      [super setIMMsg:msg];
      WJHuanXinBorderManager *manager = [self borderImageAndFrame];
     if (self.fromType == WJIMMsgFromOther) {
@@ -63,6 +61,23 @@
     cellHeight =  self.bodyBgView.bottom+WJCHAT_CELL_TIMELABELHEIGHT;
     self.cellHeight = cellHeight;
     [self baseFrameLayout];
+
+    //-----------------------
+    if ([self.sendMessageVoiceAnimationImages count] > 0 && [self.recvMessageVoiceAnimationImages count] > 0) {
+        self.playStateView.image = msg.isSender ?[self.sendMessageVoiceAnimationImages objectAtIndex:0] : [self.recvMessageVoiceAnimationImages objectAtIndex:0];
+        self.playStateView.animationImages = msg.isSender ? self.sendMessageVoiceAnimationImages:self.recvMessageVoiceAnimationImages;
+    } else {
+        self.playStateView.image = msg.isSender ?[UIImage imageNamed:@"EaseUIResource.bundle/chat_sender_audio_playing_full"]: [UIImage imageNamed:@"EaseUIResource.bundle/chat_receiver_audio_playing_full"];
+    }
+    
+    if (msg.isMediaPlaying) {
+        [self.playStateView startAnimating];
+    }
+    else{
+        [self.playStateView stopAnimating];
+    }
+    self.label.text = [NSString stringWithFormat:@"%d''",(int)msg.mediaDuration];
+    
 }
 + (CGFloat)cellHeight {
     return cellHeight+0.001;

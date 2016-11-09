@@ -317,11 +317,13 @@
     
     __weak typeof(self) weakself = self;
     [[EMClient sharedClient].chatManager sendMessage:message progress:nil completion:^(EMMessage *aMessage, EMError *aError) {
-        NSLog(@"%@",aError.errorDescription);
+        
         if (!aError) {
+            NSLog(@"%@发送消息成功",[self class]);
             [weakself _refreshAfterSentMessage:aMessage];
         }
         else {
+            NSLog(@"发送消息出错：~ ~ %@",aError.errorDescription);
             [weakself.tableView reloadData];
         }
     }];

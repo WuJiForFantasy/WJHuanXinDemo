@@ -24,9 +24,20 @@
         self.errorView.backgroundColor = [UIColor redColor];
         self.timeLabel.font = 10;
         [self.timeLabel setRightImage:[UIImage imageNamed:@"message_ic_service"] text:@"啊哈哈"];
+        [self addEvent];
     }
     return self;
 }
+
+- (void)addEvent {
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bubbleViewTapAction:)];
+    [self.bodyBgView addGestureRecognizer:tapRecognizer];
+    
+    UITapGestureRecognizer *tapRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarViewTapAction:)];
+    [self.avatarView addGestureRecognizer:tapRecognizer2];
+}
+
+
 
 #pragma mark - 懒加载
 
@@ -130,6 +141,26 @@
     [self avatarFrameLayout];
     [self timeLabelFrameLayout];
     [self errorViewFrameLayout];
+}
+
+#pragma mark - 事件监听
+
+- (void)bubbleViewTapAction:(UITapGestureRecognizer *)sender {
+    NSLog(@"点击了会话框");
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        if (!_delegate) {
+            return;
+        }
+        if ([_delegate respondsToSelector:@selector(messageCellSelected:)]) {
+            [_delegate messageCellSelected:self.msg];
+        }
+    }
+}
+
+- (void)avatarViewTapAction:(UITapGestureRecognizer *)sender {
+    
+    NSLog(@"点击了头像");
+
 }
 
 #pragma mark - others

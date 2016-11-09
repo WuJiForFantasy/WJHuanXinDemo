@@ -31,10 +31,13 @@
 
 - (void)tableViewDidTriggerHeaderRefresh;
 
-- (void)_loadMessagesBefore:(NSString*)messageId
-                      count:(NSInteger)count
-                     append:(BOOL)isAppend;
-
+//- (void)_loadMessagesBefore:(NSString*)messageId
+//                      count:(NSInteger)count
+//                     append:(BOOL)isAppend;
+#pragma mark - 发送消息回执
+- (void)_reloadTableViewDataWithMessage:(EMMessage *)message;
+- (void)_sendHasReadResponseForMessages:(NSArray*)messages
+                                 isRead:(BOOL)isRead;
 #pragma mark - 发送消息
 - (void)_sendMessage:(EMMessage *)message;
 - (void)sendTextMessage:(NSString *)text;

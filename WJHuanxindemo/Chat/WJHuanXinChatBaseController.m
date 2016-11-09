@@ -9,11 +9,13 @@
 #import "WJHuanXinChatBaseController.h"
 #import "WJHuanXinChatMsgCellUtil.h"
 #import "WJHuanXinChatStore.h"
-@interface WJHuanXinChatBaseController ()<UITableViewDelegate,UITableViewDataSource> {
+#import "EaseMessageReadManager.h"
+
+@interface WJHuanXinChatBaseController ()<UITableViewDelegate,UITableViewDataSource,WJHuanXinChatBaseCellDelegate> {
     
 }
 
-@property (nonatomic,strong) WJHuanXinChatStore *store;         //数据配置管理
+
 @property (nonatomic,strong) UITableView *tableView;            //列表
 
 @end
@@ -69,18 +71,35 @@
 #pragma mark - 事件监听
 
 - (void)rightItemPressed {
-//    [self.store sendTextMessage:@"123"];
-    //发送了地理位置
-//    [self.store sendLocationMessageLatitude:39.929986 longitude:116.37926 andAddress:@"这是测试地址"];
-    //发送图片
-//    [self.store sendImageMessage:[UIImage imageNamed:@"20150207101056_tGZfA.thumb.700_0"]];
-    NSString *url =  [[NSBundle mainBundle]pathForResource:@"Maria Arredondo - Burning" ofType:@"mp3"];
-    [self.store sendVoiceMessageWithLocalPath:url duration:10];
-    
-//    NSString *str = [[NSBundle mainBundle]pathForResource:@"02" ofType:@"mov"];
-//    NSURL *urlPath = [NSURL URLWithString:str];
-//    [self.store sendVideoMessageWithURL:urlPath];
+//    [self sendeMusic];
+    [self sendText];
 }
+
+#pragma mark - 消息发送---------------
+
+- (void)sendVideo {
+    NSString *videoUrl =  [NSString stringWithFormat:@"%@/Library/appdata/chatbuffer/02.mov",NSHomeDirectory()];
+    [self.store sendVideoMessageWithURL:[NSURL URLWithString:videoUrl]];
+}
+
+- (void)sendeMusic {
+    NSString *url =  [NSString stringWithFormat:@"%@/Library/appdata/chatbuffer/147866230657845.amr",NSHomeDirectory()];
+    [self.store sendVoiceMessageWithLocalPath:url duration:10];
+}
+
+- (void)sendPic {
+    [self.store sendImageMessage:[UIImage imageNamed:@"20150207101056_tGZfA.thumb.700_0"]];
+}
+
+- (void)sendLocation {
+    [self.store sendLocationMessageLatitude:39.929986 longitude:116.37926 andAddress:@"这是测试地址"];
+}
+
+- (void)sendText {
+    [self.store sendTextMessage:@"[示例3]"];
+}
+
+#pragma mark ----------------
 
 #pragma mark - <UITableViewDelegate,UITableViewDataSource>
 
@@ -105,6 +124,8 @@
     }else {
         //自定义各种类型的cell
         cell = [WJHuanXinChatMsgCellUtil tableView:tableView cellForMsg:object];
+        WJHuanXinChatBaseCell *newcell = (WJHuanXinChatBaseCell*)cell;
+        newcell.delegate = self;
         return cell;
     }
 }
@@ -115,8 +136,233 @@
     return [WJHuanXinChatMsgCellUtil cellHeightForMsg:object];
 }
 
+#pragma mark - <WJHuanXinChatBaseCellDelegate>
 
-#pragma mark - other
+- (void)messageCellSelected:(id<IMessageModel>)model {
+    switch (model.bodyType) {
+        case EMMessageBodyTypeImage:
+        {
+//            _scrollToBottomWhenAppear = NO;
+            [self _imageMessageCellSelected:model];
+        }
+            break;
+        case EMMessageBodyTypeLocation:
+        {
+            [self _locationMessageCellSelected:model];
+        }
+            break;
+        case EMMessageBodyTypeVoice:
+        {
+            [self _audioMessageCellSelected:model];
+        }
+            break;
+        case EMMessageBodyTypeVideo:
+        {
+            [self _videoMessageCellSelected:model];
+            
+        }
+            break;
+        case EMMessageBodyTypeFile:
+        {
+//            _scrollToBottomWhenAppear = NO;
+            [self showHint:@"Custom implementation!"];
+            NSLog(@"文件来咯");
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)statusButtonSelcted:(id<IMessageModel>)model withMessageCell:(EaseMessageCell *)messageCell {
+
+}
+
+- (void)avatarViewSelcted:(id<IMessageModel>)model {
+    
+}
+
+#pragma mark - others
+
+//地址选中
+- (void)_locationMessageCellSelected:(id<IMessageModel>)model
+{
+//    _scrollToBottomWhenAppear = NO;
+    
+    EaseLocationViewController *locationController = [[EaseLocationViewController alloc] initWithLocation:CLLocationCoordinate2DMake(model.latitude, model.longitude)];
+    [self.navigationController pushViewController:locationController animated:YES];
+}
+
+//图片选中
+- (void)_imageMessageCellSelected:(id<IMessageModel>)model {
+    __weak typeof(self) weakSelf = self;
+    EMImageMessageBody *imageBody = (EMImageMessageBody*)[model.message body];
+    if ([imageBody type] == EMMessageBodyTypeImage) {
+        //如果是成功状态
+        if (imageBody.thumbnailDownloadStatus == EMDownloadStatusSuccessed) {
+            if (imageBody.downloadStatus == EMDownloadStatusSuccessed)
+            {
+                //send the acknowledgement
+                [weakSelf.store _sendHasReadResponseForMessages:@[model.message] isRead:YES];
+                NSString *localPath = model.message == nil ? model.fileLocalPath : [imageBody localPath];
+                if (localPath && localPath.length > 0) {
+                    UIImage *image = [UIImage imageWithContentsOfFile:localPath];
+                    
+                    if (image)
+                    {
+                        //弹出图片视图
+                        [[EaseMessageReadManager defaultManager] showBrowserWithImages:@[image]];
+                    }
+                    else
+                    {
+                        NSLog(@"Read %@ failed!", localPath);
+                    }
+                    return;
+                }
+            }
+            
+            [weakSelf showHudInView:weakSelf.view hint:NSEaseLocalizedString(@"message.downloadingImage", @"downloading a image...")];
+            [[EMClient sharedClient].chatManager downloadMessageAttachment:model.message progress:nil completion:^(EMMessage *message, EMError *error) {
+                [weakSelf hideHud];
+                if (!error) {
+                    //send the acknowledgement
+                    [weakSelf.store _sendHasReadResponseForMessages:@[model.message] isRead:YES];
+                    NSString *localPath = message == nil ? model.fileLocalPath : [(EMImageMessageBody*)message.body localPath];
+                    if (localPath && localPath.length > 0) {
+                        UIImage *image = [UIImage imageWithContentsOfFile:localPath];
+                        //                                weakSelf.isScrollToBottom = NO;
+                        if (image)
+                        {
+                            [[EaseMessageReadManager defaultManager] showBrowserWithImages:@[image]];
+                        }
+                        else
+                        {
+                            NSLog(@"Read %@ failed!", localPath);
+                        }
+                        return ;
+                    }
+                }
+                [weakSelf showHint:NSEaseLocalizedString(@"message.imageFail", @"image for failure!")];
+            }];
+        }else{
+            //get the message thumbnail
+            [[EMClient sharedClient].chatManager downloadMessageThumbnail:model.message progress:nil completion:^(EMMessage *message, EMError *error) {
+                if (!error) {
+                    [weakSelf.store _reloadTableViewDataWithMessage:model.message];
+                }else{
+                    [weakSelf showHint:NSEaseLocalizedString(@"message.thumImageFail", @"thumbnail for failure!")];
+                }
+            }];
+        }
+    }
+}
+
+//音频选中
+- (void)_audioMessageCellSelected:(id<IMessageModel>)model {
+    
+    EMVoiceMessageBody *body = (EMVoiceMessageBody*)model.message.body;
+    EMDownloadStatus downloadStatus = [body downloadStatus];
+    
+    if (downloadStatus == EMDownloadStatusDownloading) {
+        [self showHint:NSEaseLocalizedString(@"message.downloadingAudio", @"downloading voice, click later")];
+        return;
+    }
+    else if (downloadStatus == EMDownloadStatusFailed)
+    {
+        [self showHint:NSEaseLocalizedString(@"message.downloadingAudio", @"downloading voice, click later")];
+        [[EMClient sharedClient].chatManager downloadMessageAttachment:model.message progress:nil completion:nil];
+        return;
+    }
+    
+    // play the audio
+    if (model.bodyType == EMMessageBodyTypeVoice) {
+        //send the acknowledgement
+        [self.store _sendHasReadResponseForMessages:@[model.message] isRead:YES];
+        
+        __weak typeof(self) weakSelf = self;
+        BOOL isPrepare = [[EaseMessageReadManager defaultManager] prepareMessageAudioModel:model updateViewCompletion:^(EaseMessageModel *prevAudioModel, EaseMessageModel *currentAudioModel) {
+            if (prevAudioModel || currentAudioModel) {
+                [weakSelf.tableView reloadData];
+            }
+        }];
+        
+        //如果已经准备
+        if (isPrepare) {
+            _isPlayingAudio = YES;
+            __weak typeof(self) weakSelf = self;
+            //播放音频路径
+            [[EMCDDeviceManager sharedInstance] enableProximitySensor];
+            [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:model.fileLocalPath completion:^(NSError *error) {
+                [[EaseMessageReadManager defaultManager] stopMessageAudioModel];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf.tableView reloadData];
+                    weakSelf.isPlayingAudio = NO;
+                    [[EMCDDeviceManager sharedInstance] disableProximitySensor];
+                });
+            }];
+        }
+        else{
+            _isPlayingAudio = NO;
+        }
+    }
+}
+
+//视频选中
+- (void)_videoMessageCellSelected:(id<IMessageModel>)model {
+    EMVideoMessageBody *videoBody = (EMVideoMessageBody*)model.message.body;
+    
+    NSString *localPath = [model.fileLocalPath length] > 0 ? model.fileLocalPath : videoBody.localPath;
+    if ([localPath length] == 0) {
+        [self showHint:NSEaseLocalizedString(@"message.videoFail", @"video for failure!")];
+        return;
+    }
+    dispatch_block_t block = ^{
+        //send the acknowledgement
+        [self.store _sendHasReadResponseForMessages:@[model.message]
+                                       isRead:YES];
+        
+        NSURL *videoURL = [NSURL fileURLWithPath:localPath];
+        MPMoviePlayerViewController *moviePlayerController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
+        [moviePlayerController.moviePlayer prepareToPlay];
+        moviePlayerController.moviePlayer.movieSourceType = MPMovieSourceTypeFile;
+        [self presentMoviePlayerViewControllerAnimated:moviePlayerController];
+    };
+    __weak typeof(self) weakSelf = self;
+    void (^completion)(EMMessage *aMessage, EMError *error) = ^(EMMessage *aMessage, EMError *error) {
+        if (!error)
+        {
+            [weakSelf.store _reloadTableViewDataWithMessage:aMessage];
+        }
+        else
+        {
+            [weakSelf showHint:NSEaseLocalizedString(@"message.thumImageFail", @"thumbnail for failure!")];
+        }
+    };
+    
+    //如果加载失败或者没有缩略图就下载缩略图
+    if (videoBody.thumbnailDownloadStatus == EMDownloadStatusFailed || ![[NSFileManager defaultManager] fileExistsAtPath:videoBody.thumbnailLocalPath]) {
+        [self showHint:@"begin downloading thumbnail image, click later"];
+        
+        [[EMClient sharedClient].chatManager downloadMessageThumbnail:model.message progress:nil completion:completion];
+        return;
+    }
+    
+    //如果是下载成功状态就播放视频，否则进入下载视频
+    if (videoBody.downloadStatus == EMDownloadStatusSuccessed && [[NSFileManager defaultManager] fileExistsAtPath:localPath])
+    {
+        block();
+        return;
+    }
+    [self showHudInView:self.view hint:NSEaseLocalizedString(@"message.downloadingVideo", @"downloading video...")];
+    [[EMClient sharedClient].chatManager downloadMessageAttachment:model.message progress:nil completion:^(EMMessage *message, EMError *error) {
+        [weakSelf hideHud];
+        if (!error) {
+            block();
+        }else{
+            [weakSelf showHint:NSEaseLocalizedString(@"message.videoFail", @"video for failure!")];
+        }
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

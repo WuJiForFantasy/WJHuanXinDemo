@@ -37,11 +37,11 @@
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
 //Placeholder image for network error
-@property (strong, nonatomic) NSString *failImageName;
+@property (strong, nonatomic) NSString *failImageName;          //失败时候的图片
 @property (nonatomic) CGSize imageSize;
 @property (nonatomic) CGSize thumbnailImageSize;
 @property (strong, nonatomic) UIImage *image;
-@property (strong, nonatomic) UIImage *thumbnailImage;
+@property (strong, nonatomic) UIImage *thumbnailImage;          //缩略图
 @property (nonatomic) BOOL isMediaPlaying;
 @property (nonatomic) BOOL isMediaPlayed;
 @property (nonatomic) CGFloat mediaDuration;
@@ -53,7 +53,7 @@
 @property (nonatomic) float progress;
 @property (strong, nonatomic, readonly) NSString *fileLocalPath;
 @property (strong, nonatomic) NSString *thumbnailFileLocalPath;
-@property (strong, nonatomic) NSString *fileURLPath;
+@property (strong, nonatomic) NSString *fileURLPath;                //路径地址
 @property (strong, nonatomic) NSString *thumbnailFileURLPath;
 
 - (instancetype)initWithMessage:(EMMessage *)message;

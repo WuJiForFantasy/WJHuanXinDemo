@@ -45,7 +45,22 @@
     self.cellHeight = cellHeight;
     [self baseFrameLayout];
 
+    //----------------------------------------
+    UIImage *image = msg.isSender ? msg.image : msg.thumbnailImage;
+    if (!image) {
+        image = msg.image;
+        if (!image) {
+            [self.picImage sd_setImageWithURL:[NSURL URLWithString:msg.fileURLPath] placeholderImage:[UIImage imageNamed:msg.failImageName]];
+        } else {
+            self.picImage.image = image;
+        }
+    } else {
+        self.picImage.image = image;
+    }
+    
 }
+
+
 + (CGFloat)cellHeight {
     return cellHeight+0.001;
 }
