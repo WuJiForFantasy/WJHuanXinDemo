@@ -10,7 +10,6 @@
 #import "RFTextView.h"
 #import "WJChatToolBarItemModel.h"
 
-
 @protocol WJChatToolBarDelegate <NSObject>
 
 - (void)chatToolBarTextViewDidBeginEditing:(UITextView *)textView;

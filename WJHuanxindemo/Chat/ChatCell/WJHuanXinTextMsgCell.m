@@ -7,8 +7,11 @@
 //
 
 #import "WJHuanXinTextMsgCell.h"
+#import "MLEmojiLabel.h"
 
-@interface WJHuanXinTextMsgCell ()<TTTAttributedLabelDelegate>
+@interface WJHuanXinTextMsgCell ()<MLEmojiLabelDelegate>
+
+@property (nonatomic, strong) MLEmojiLabel *emojiLabel;
 
 @end
 
@@ -17,59 +20,39 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-//         [self.bodyBgView addSubview:self.textView];
-        [self.bodyBgView addSubview:self.contentLabel];
+        [self.bodyBgView addSubview:self.emojiLabel];
     }
     return self;
 }
 
 #pragma mark - 懒加载
 
-- (YYLabel *)contentLabel {
-    if (!_contentLabel) {
-        _contentLabel = [YYLabel new];
-        // 内置简单的表情解析
-        YYTextSimpleEmoticonParser *parser = [YYTextSimpleEmoticonParser new];
-        NSMutableDictionary *mapper = [NSMutableDictionary new];
-        mapper[@"[大笑]"] = [UIImage imageNamed:@"f_static_000"];
-//        mapper[@":cool:"] = [UIImage imageNamed:@"cool.png"];
-//        mapper[@":cry:"] = [UIImage imageNamed:@"cry.png"];
-//        mapper[@":wink:"] = [UIImage imageNamed:@"wink.png"];
-        parser.emoticonMapper = mapper;
-        _contentLabel.font = [UIFont systemFontOfSize:14];
-        _contentLabel.textParser = parser;
-        _contentLabel.numberOfLines = 0;
+- (MLEmojiLabel *)emojiLabel
+{
+    if (!_emojiLabel) {
+        _emojiLabel = [MLEmojiLabel new];
+        _emojiLabel.numberOfLines = 0;
+        _emojiLabel.font = [UIFont systemFontOfSize:14.0f];
+        _emojiLabel.delegate = self;
+        _emojiLabel.backgroundColor = [UIColor clearColor];
+        _emojiLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        _emojiLabel.textColor = [UIColor whiteColor];
+        _emojiLabel.backgroundColor = [UIColor colorWithRed:0.218 green:0.809 blue:0.304 alpha:1.000];
+        _emojiLabel.textInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+        _emojiLabel.isNeedAtAndPoundSign = YES;
+        _emojiLabel.disableEmoji = NO;
+        _emojiLabel.lineSpacing = 3.0f;
+        _emojiLabel.customEmojiRegex = @"\\[[a-zA-Z0-9\\u4e00-\\u9fa5]+\\]";
+        _emojiLabel.customEmojiPlistName = @"expressionImage_custom.plist";
     }
-    return _contentLabel;
+    return _emojiLabel;
 }
-
-//- (TTTAttributedLabel *)textView {
-//    if (!_textView) {
-//        _textView = [[TTTAttributedLabel alloc]initWithFrame:CGRectZero];
-//        _textView.userInteractionEnabled = NO;
-//        _textView.backgroundColor = [UIColor clearColor];
-//        _textView.lineBreakMode = NSLineBreakByCharWrapping;
-//        _textView.numberOfLines = 0;
-//        _textView.leading = 5;
-//        _textView.verticalAlignment = TTTAttributedLabelVerticalAlignmentCenter;
-//        _textView.highlightedTextColor = [UIColor whiteColor];
-//        _textView.font = WJIMTextMsgCellTextFont;
-//        _textView.delegate = self;
-//    }
-//    return _textView;
-//}
-
 - (void)setIMMsg:(EaseMessageModel *)msg {
     [super setIMMsg:msg];
-//    [self.textView setText:msg.text];
-    self.contentLabel.text = msg.text;
-//    NSLog(@"%f",self.contentLabel.maxY);
+     [self.emojiLabel setText:msg.text];
     WJHuanXinBorderManager *manager =  [self borderImageAndFrame];
-    
-    self.contentLabel.frame = CGRectMake(manager.leftPadding, manager.topPadding,  manager.labelWidth,  manager.labelHeight);
+    self.emojiLabel.frame = CGRectMake(manager.leftPadding, manager.topPadding,  manager.labelWidth,  manager.labelHeight);
 
-    
-    
     cellHeight = self.bodyBgView.bottom+WJCHAT_CELL_TIMELABELHEIGHT;
     self.cellHeight = cellHeight;
     [self baseFrameLayout];
@@ -77,4 +60,11 @@
 + (CGFloat)cellHeight {
     return cellHeight+0.001;
 }
+
+#pragma mark - <MLEmojiLabelDelegate>
+
+- (void)mlEmojiLabel:(MLEmojiLabel *)emojiLabel didSelectLink:(NSString *)link withType:(MLEmojiLabelLinkType)type {
+    NSLog(@"---------llll-----------");
+}
+
 @end

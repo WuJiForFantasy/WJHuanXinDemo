@@ -8,7 +8,7 @@
 
 #import "WJHuanXinBorderManager.h"
 #import "WJHuanXinBorderInfo.h"
-#import "TTTAttributedLabel.h"
+#import "MLEmojiLabel.h"
 #import "YYText.h"
 
 @interface WJHuanXinBorderManager ()
@@ -44,57 +44,24 @@
         self.msg = msg;
         //计算frame方法
         if (msg.bodyType == EMMessageBodyTypeText) {
+            static MLEmojiLabel *protypeLabel = nil;
+            if (!protypeLabel) {
+                protypeLabel = [MLEmojiLabel new];
+                protypeLabel.numberOfLines = 0;
+                protypeLabel.font = [UIFont systemFontOfSize:14.0f];
+                protypeLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+                protypeLabel.textInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+                protypeLabel.isNeedAtAndPoundSign = YES;
+                protypeLabel.disableEmoji = NO;
+                protypeLabel.lineSpacing = 3.0f;
+                protypeLabel.customEmojiRegex = @"\\[[a-zA-Z0-9\\u4e00-\\u9fa5]+\\]";
+                protypeLabel.customEmojiPlistName = @"expressionImage_custom.plist";
+            }
             
-            YYTextSimpleEmoticonParser *parser = [YYTextSimpleEmoticonParser new];
-            NSMutableDictionary *mapper = [NSMutableDictionary new];
-            mapper[@"[大笑]"] = [UIImage imageNamed:@"smile.png"];
-            
-//            //        mapper[@":cool:"] = [UIImage imageNamed:@"cool.png"];
-//            //        mapper[@":cry:"] = [UIImage imageNamed:@"cry.png"];
-//            //        mapper[@":wink:"] = [UIImage imageNamed:@"wink.png"];
-//            //        parser.emoticonMapper = mapper;
-            
-            YYLabel *label = [[YYLabel alloc]initWithFrame:CGRectMake(0, 0, WJCHAT_CELL_CONTENT_MAXWIDTH-20, 20)];
-            label.text = msg.text;
-            label.font = [UIFont systemFontOfSize:14];
-            label.textParser = parser;
-            label.numberOfLines = 0;
-            [label sizeToFit];
-            CGRect rect = CGRectMake(0, 0, label.width, label.height);
-//            CGRect rect = label.textLayout.textBoundingRect;
-           
-//            NSAttributedString *text = [[NSAttributedString alloc]initWithString:msg.text];
-//            CGSize size = CGSizeMake(WJCHAT_CELL_CONTENT_MAXWIDTH-20, CGFLOAT_MAX);
-//            YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:size text:text];
-            
-//
-////            TTTAttributedLabel *textView = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
-////            textView.userInteractionEnabled = NO;
-////            textView.backgroundColor = [UIColor clearColor];
-////            textView.lineBreakMode = NSLineBreakByCharWrapping;
-////            textView.numberOfLines = 0;
-////            textView.leading = 5;
-////            textView.verticalAlignment = TTTAttributedLabelVerticalAlignmentCenter;
-////            textView.highlightedTextColor = [UIColor whiteColor];
-////            textView.font = WJIMTextMsgCellTextFont;
-////            
-////            [textView setText:msg.text];
-//            
-////            CGRect rect = [textView.attributedText boundingRectWithSize:CGSizeMake(WJCHAT_CELL_CONTENT_MAXWIDTH-20, 1000) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-//
-            // 完全控制:
-//            YYTextLinePositionSimpleModifier *modifier = [YYTextLinePositionSimpleModifier new];
-//            modifier.fixedLineHeight = 24;
-//            
-//            YYTextContainer *container = [YYTextContainer new];
-//            container.size = CGSizeMake(100, CGFLOAT_MAX);
-//            container.linePositionModifier = modifier;
-//            
-//            YYTextLayout *layout = [YYTextLayout layoutWithContainer:container text:msg.text];
-            
-//            CGRect rect  = CGRectMake(0, 0, 150, 80);
-            self.labelWidth = rect.size.width;
-            self.labelHeight = rect.size.height+5;
+            [protypeLabel setText:msg.text];
+            CGSize size = [protypeLabel preferredSizeWithMaxWidth:WJCHAT_CELL_CONTENT_MAXWIDTH-20];
+            self.labelWidth = size.width;
+            self.labelHeight = size.height+5;
             
             if (self.labelHeight < 25) {
                 self.labelHeight = 30;
