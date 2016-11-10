@@ -14,6 +14,17 @@
 
 @implementation MainController
 
+#pragma mark - 懒加载
+
+- (MainStore *)store {
+    if (!_store) {
+        _store = [MainStore new];
+    }
+    return _store;
+}
+
+#pragma mark - 生命周期
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[EMClient sharedClient] loginWithUsername:@"123" password:@"123" completion:^(NSString *aUsername, EMError *aError) {
@@ -31,15 +42,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

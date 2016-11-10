@@ -9,13 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "MainController.h"
 #import "WJHuanXinConversationListController.h"
+#import "WJHuanXinChatBaseController.h"
+
+#define KNOTIFICATION_LOGINCHANGE @"loginStateChange"   //下线通知
+//#define WJHuanXinsetupUnreadMessageCount @"setupUnreadMessageCount"
+
 /**WJ环信聊天帮助*/
 
 @interface WJHuanXinChatHelper : NSObject
 
 @property (nonatomic, weak) WJHuanXinConversationListController *conversationListVC;
-
 @property (nonatomic, weak) MainController *mainVC;
+@property (nonatomic, weak) WJHuanXinChatBaseController *chatVC;
 
 /**单例*/
 + (instancetype)shareHelper;

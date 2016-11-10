@@ -74,9 +74,9 @@
 -(void)refreshAndSortView
 {
     if ([self.dataArray count] > 1) {
-        if ([[self.dataArray objectAtIndex:0] isKindOfClass:[EaseConversationModel class]]) {
+        if ([[self.dataArray objectAtIndex:0] isKindOfClass:[WJHuanXinConversationModel class]]) {
             NSArray* sorted = [self.dataArray sortedArrayUsingComparator:
-                               ^(EaseConversationModel *obj1, EaseConversationModel* obj2){
+                               ^(WJHuanXinConversationModel *obj1, WJHuanXinConversationModel* obj2){
                                    EMMessage *message1 = [obj1.conversation latestMessage];
                                    EMMessage *message2 = [obj2.conversation latestMessage];
                                    if(message1.timestamp > message2.timestamp) {
@@ -112,7 +112,7 @@
     
     [self.dataArray removeAllObjects];
     for (EMConversation *converstion in sorted) {
-        EaseConversationModel *model = nil;
+        WJHuanXinConversationModel *model = nil;
 //        if (self.dataSource && [self.dataSource respondsToSelector:@selector(conversationListViewController:modelForConversation:)]) {
 //            model = [self.dataSource conversationListViewController:self
 //                                               modelForConversation:converstion];
@@ -120,7 +120,7 @@
 //        else{
 //            model = [[EaseConversationModel alloc] initWithConversation:converstion];
 //        }
-        model = [[EaseConversationModel alloc] initWithConversation:converstion];
+        model = [[WJHuanXinConversationModel alloc] initWithConversation:converstion];
         if (model) {
             [self.dataArray addObject:model];
         }

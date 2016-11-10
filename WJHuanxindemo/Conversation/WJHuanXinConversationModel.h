@@ -10,13 +10,13 @@
 
 /**环信会话模型*/
 
-@interface WJHuanXinConversationModel : NSObject
+@interface WJHuanXinConversationModel : EaseConversationModel
 
-@property (strong, nonatomic, readonly) EMConversation *conversation;
-@property (strong, nonatomic) NSString *title;
-@property (strong, nonatomic) NSString *avatarURLPath;
-@property (strong, nonatomic) UIImage *avatarImage;
-
-- (instancetype)initWithConversation:(EMConversation *)conversation;
+//@property (strong, nonatomic, readonly) EMConversation *conversation;
+//@property (strong, nonatomic) NSString *title;
+//@property (strong, nonatomic) NSString *avatarURLPath;
+//@property (strong, nonatomic) UIImage *avatarImage;
+//
+//- (instancetype)initWithConversation:(EMConversation *)conversation;
 
 @end

@@ -145,6 +145,7 @@
 		B964AF0F1DD41D2C00C5148D /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B964AF0A1DD41D2C00C5148D /* TTTAttributedLabel.m */; };
 		B964AF111DD41FC000C5148D /* expressionImage_custom.plist in Resources */ = {isa = PBXBuildFile; fileRef = B964AF101DD41FC000C5148D /* expressionImage_custom.plist */; };
 		B964AF131DD41FCA00C5148D /* expression_custom.plist in Resources */ = {isa = PBXBuildFile; fileRef = B964AF121DD41FCA00C5148D /* expression_custom.plist */; };
+		B964AF161DD4615600C5148D /* MainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B964AF151DD4615600C5148D /* MainStore.m */; };
 		B9C56EC41DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B9C56EC31DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 */; };
 		B9C56EC71DD329BF00A37843 /* WJHuanXinChatToolController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56EC61DD329BF00A37843 /* WJHuanXinChatToolController.m */; };
 		B9C56EE81DD32E3E00A37843 /* FaceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56ECC1DD32E3E00A37843 /* FaceButton.m */; };
@@ -529,6 +530,8 @@
 		B964AF0A1DD41D2C00C5148D /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		B964AF101DD41FC000C5148D /* expressionImage_custom.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = expressionImage_custom.plist; sourceTree = "<group>"; };
 		B964AF121DD41FCA00C5148D /* expression_custom.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = expression_custom.plist; sourceTree = "<group>"; };
+		B964AF141DD4615600C5148D /* MainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStore.h; sourceTree = "<group>"; };
+		B964AF151DD4615600C5148D /* MainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStore.m; sourceTree = "<group>"; };
 		B9C56EC31DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Maria Arredondo - Burning.mp3"; sourceTree = "<group>"; };
 		B9C56EC51DD329BF00A37843 /* WJHuanXinChatToolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHuanXinChatToolController.h; sourceTree = "<group>"; };
 		B9C56EC61DD329BF00A37843 /* WJHuanXinChatToolController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJHuanXinChatToolController.m; sourceTree = "<group>"; };
@@ -804,6 +807,8 @@
 			children = (
 				B95F3C3E1DD0284C0034914A /* MainController.h */,
 				B95F3C3F1DD0284C0034914A /* MainController.m */,
+				B964AF141DD4615600C5148D /* MainStore.h */,
+				B964AF151DD4615600C5148D /* MainStore.m */,
 				B95F3C401DD0284C0034914A /* MainController.xib */,
 			);
 			path = Main;
@@ -1975,6 +1980,7 @@
 				B964AE8D1DD402D500C5148D /* EaseRefreshTableViewController.m in Sources */,
 				B964AE481DD402D500C5148D /* MJRefreshBackNormalFooter.m in Sources */,
 				B964AE911DD402D500C5148D /* EaseBaseMessageCell.m in Sources */,
+				B964AF161DD4615600C5148D /* MainStore.m in Sources */,
 				B964AE961DD402D500C5148D /* EaseBubbleView+Gif.m in Sources */,
 				B964AE921DD402D500C5148D /* EaseCustomMessageCell.m in Sources */,
 				B964AE531DD402D500C5148D /* MWGridCell.m in Sources */,

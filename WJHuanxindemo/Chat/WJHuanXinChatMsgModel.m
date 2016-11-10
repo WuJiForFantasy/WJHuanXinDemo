@@ -10,7 +10,6 @@
 
 @implementation WJHuanXinChatMsgModel
 
-
 - (instancetype)initWithMessage:(EMMessage *)message
 {
     self = [super init];

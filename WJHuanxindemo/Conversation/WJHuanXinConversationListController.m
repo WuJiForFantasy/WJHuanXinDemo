@@ -46,8 +46,12 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     [self.store registerNotifications];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+     [self refresh];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -63,6 +67,7 @@
         self.edgesForExtendedLayout =  UIRectEdgeNone;
     }
     [self.view addSubview:self.tableView];
+    self.store.tableView = self.tableView;
     [self.store requestAllConversations:^{
         [self.tableView reloadData];
     }];

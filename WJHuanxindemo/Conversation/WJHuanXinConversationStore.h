@@ -12,7 +12,7 @@
 @interface WJHuanXinConversationStore : NSObject
 
 @property (nonatomic,strong)UITableView *tableView;  //会话列表
-@property (nonatomic,strong)NSMutableArray *dataArray;  //会话数据
+@property (nonatomic,strong)NSMutableArray *dataArray;  //会话数据 
 
 -(void)registerNotifications;
 -(void)unregisterNotifications;
