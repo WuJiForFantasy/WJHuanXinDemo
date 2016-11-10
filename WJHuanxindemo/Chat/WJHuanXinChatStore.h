@@ -7,7 +7,7 @@
 //
 
 #import "WJHuanXinChatBaseCell.h"
-
+@class WJHuanXinChatBaseController;
 
 //typedef void (^did);
 /**聊天相关的数据处理----单聊~~~~*/
@@ -22,12 +22,14 @@
 @property (nonatomic,assign)NSTimeInterval messageTimeIntervalTag;  //消息时间戳标记
 
 @property (nonatomic) NSInteger messageCountOfPage;                 //default 50
-@property (nonatomic) BOOL isViewDidAppear;                         //视图将要显示
+@property (nonatomic) BOOL isViewDidAppear;                         //视图将要显示(需要在视图显示消失操作)
 
 /**通过会话ID获取会话，创建单聊,最初调用*/
 - (void)getConversationChatter:(NSString *)conversationChatter;
 /**开始会话并进行会话监听*/
-- (void)startConversation;
+- (void)startConversationWithVc:(WJHuanXinChatBaseController *)vc;
+//关闭会话
+- (void)stopConversation;
 
 - (void)tableViewDidTriggerHeaderRefresh;
 

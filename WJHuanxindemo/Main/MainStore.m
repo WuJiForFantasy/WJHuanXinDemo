@@ -42,7 +42,6 @@ static NSString *kGroupName = @"GroupName";
         NSLog(@"skip ringing & vibration %@, %@", [NSDate date], self.lastPlaySoundDate);
         return;
     }
-    
     //保存最后一次响铃时间
     self.lastPlaySoundDate = [NSDate date];
     
@@ -55,12 +54,24 @@ static NSString *kGroupName = @"GroupName";
 
 #pragma mark - 通知监听
 
+- (void)setupCleanUnreadMessageCount {
+    if (self.unreadMsgNumBlock) {
+        self.unreadMsgNumBlock(0);
+    }
+    UIApplication *application = [UIApplication sharedApplication];
+    [application setApplicationIconBadgeNumber:0];
+}
+
 - (void)setupUnreadMessageCount {
     NSArray *conversations = [[EMClient sharedClient].chatManager getAllConversations];
     NSInteger unreadCount = 0;
     for (EMConversation *conversation in conversations) {
         unreadCount += conversation.unreadMessagesCount;
     }
+    if (self.unreadMsgNumBlock) {
+        self.unreadMsgNumBlock(unreadCount);
+    }
+    
     NSLog(@"%@:没有读取的消息数量%ld",[self class],unreadCount);
     UIApplication *application = [UIApplication sharedApplication];
     [application setApplicationIconBadgeNumber:unreadCount];

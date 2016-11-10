@@ -14,10 +14,11 @@
 //    EMConnectionState _connectionState; //网络连接状态
 //}
 @property (nonatomic,assign,readonly)EMConnectionState connectionState; //网络连接状态
+@property (nonatomic,copy)void (^unreadMsgNumBlock)(NSInteger num);     //没有阅读的数量的回调
 
 //统计未读消息
 - (void)setupUnreadMessageCount;
-
+- (void)setupCleanUnreadMessageCount;
 //播放声音和响铃
 - (void)playSoundAndVibration;
 

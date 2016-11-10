@@ -146,6 +146,7 @@
 		B964AF111DD41FC000C5148D /* expressionImage_custom.plist in Resources */ = {isa = PBXBuildFile; fileRef = B964AF101DD41FC000C5148D /* expressionImage_custom.plist */; };
 		B964AF131DD41FCA00C5148D /* expression_custom.plist in Resources */ = {isa = PBXBuildFile; fileRef = B964AF121DD41FCA00C5148D /* expression_custom.plist */; };
 		B964AF161DD4615600C5148D /* MainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B964AF151DD4615600C5148D /* MainStore.m */; };
+		B964AF191DD47B8C00C5148D /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = B964AF181DD47B8C00C5148D /* UIAlertController+Blocks.m */; };
 		B9C56EC41DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B9C56EC31DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 */; };
 		B9C56EC71DD329BF00A37843 /* WJHuanXinChatToolController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56EC61DD329BF00A37843 /* WJHuanXinChatToolController.m */; };
 		B9C56EE81DD32E3E00A37843 /* FaceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C56ECC1DD32E3E00A37843 /* FaceButton.m */; };
@@ -532,6 +533,8 @@
 		B964AF121DD41FCA00C5148D /* expression_custom.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = expression_custom.plist; sourceTree = "<group>"; };
 		B964AF141DD4615600C5148D /* MainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainStore.h; sourceTree = "<group>"; };
 		B964AF151DD4615600C5148D /* MainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStore.m; sourceTree = "<group>"; };
+		B964AF171DD47B8C00C5148D /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
+		B964AF181DD47B8C00C5148D /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		B9C56EC31DD2C2E400A37843 /* Maria Arredondo - Burning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Maria Arredondo - Burning.mp3"; sourceTree = "<group>"; };
 		B9C56EC51DD329BF00A37843 /* WJHuanXinChatToolController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJHuanXinChatToolController.h; sourceTree = "<group>"; };
 		B9C56EC61DD329BF00A37843 /* WJHuanXinChatToolController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJHuanXinChatToolController.m; sourceTree = "<group>"; };
@@ -746,6 +749,8 @@
 		B95F3BE91DD0238C0034914A /* WJHuanxindemo */ = {
 			isa = PBXGroup;
 			children = (
+				B964AF171DD47B8C00C5148D /* UIAlertController+Blocks.h */,
+				B964AF181DD47B8C00C5148D /* UIAlertController+Blocks.m */,
 				B9C56EFA1DD3536900A37843 /* YYText */,
 				B9C56EF61DD3305500A37843 /* emotion.plist */,
 				B9C56EF71DD3305500A37843 /* face.plist */,
@@ -1915,6 +1920,7 @@
 				B9C56F401DD3536900A37843 /* YYTextRubyAnnotation.m in Sources */,
 				B964AE991DD402D500C5148D /* EaseBubbleView+Text.m in Sources */,
 				B964AE661DD402D500C5148D /* UIImage+EMMultiFormat.m in Sources */,
+				B964AF191DD47B8C00C5148D /* UIAlertController+Blocks.m in Sources */,
 				B964AE6C1DD402D500C5148D /* PSTCollectionView.m in Sources */,
 				B964AE671DD402D500C5148D /* UIImage+EMWebP.m in Sources */,
 				B9C890C61DD1CBC700E60BC5 /* NSDictionary+WJAdditions.m in Sources */,

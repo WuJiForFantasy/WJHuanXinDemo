@@ -87,7 +87,6 @@
        [self tableViewChangeToEidtMode];
    }];
 }
-
 #pragma mark - others
 
 - (void)tableViewChangeToEidtMode

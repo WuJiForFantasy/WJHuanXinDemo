@@ -12,5 +12,6 @@
 @interface MainController : UITabBarController
 
 @property (nonatomic,strong)MainStore *store;   //数据通知配置管理
+//@property (nonatomic,strong)
 
 @end

@@ -28,5 +28,8 @@
 /**异步获取从数据库会话*/
 
 - (void)asyncConversationFromDB;
+- (void)setupUnreadMessageCount;
+
+//- (void)cleanBadgeNum;//清空
 
 @end

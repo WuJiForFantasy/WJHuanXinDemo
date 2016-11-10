@@ -8,7 +8,7 @@
 
 #import "MainController.h"
 
-@interface MainController ()
+@interface MainController ()<UIAlertViewDelegate>
 
 @end
 
@@ -27,7 +27,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[EMClient sharedClient] loginWithUsername:@"123" password:@"123" completion:^(NSString *aUsername, EMError *aError) {
+
+    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:@"登录" delegate:self cancelButtonTitle:@"登录" otherButtonTitles:nil];
+    alertView.delegate = self;
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alertView show];
+
+    __weak typeof(self) myself = self;
+    [self.store setUnreadMsgNumBlock:^(NSInteger num) {
+        NSLog(@"没有读取的消息-----%ld",num);
+        if (num == 0) {
+            myself.viewControllers[0].tabBarItem.badgeValue = nil;
+        }else {
+            myself.viewControllers[0].tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld",num];
+        }
+    }];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    UITextField *textFeild = [alertView textFieldAtIndex:0];
+    [[EMClient sharedClient] loginWithUsername:textFeild.text password:@"123" completion:^(NSString *aUsername, EMError *aError) {
         NSLog(@"%@",aError.errorDescription);
         if (!aError) {
             NSLog(@"用户:%@登录成功",aUsername);
@@ -35,7 +55,6 @@
             NSLog(@"登录失败");
         }
     }];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {

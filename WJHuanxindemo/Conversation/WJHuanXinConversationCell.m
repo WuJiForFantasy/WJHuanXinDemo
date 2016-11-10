@@ -138,8 +138,13 @@
     self.dateLabel.textColor = [UIColor grayColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self exportCell];
-    [self masLayout];
+//    [self masLayout];
     self.userLabel.text = model.title;
+    self.contentLabel.text = [self _latestMessageTitleForConversationModel:model];
+    self.dateLabel.text = [self _latestMessageTimeForConversationModel:model];
+    NSInteger num = model.conversation.unreadMessagesCount;
+    self.numBadge.text = [NSString stringWithFormat:@"%ld",num];
+    [self masLayout];
 }
 
 - (void)masLayout {
@@ -148,8 +153,10 @@
     self.userLabel.frame = CGRectMake(10+self.userImage.maxX, self.userImage.y, 150, 20);
     self.dateLabel.frame = CGRectMake(SCREEN_WIDTH - 15-70, self.userImage.y, 70, 20);
     self.contentLabel.frame = CGRectMake(self.userLabel.x, self.userLabel.maxY, self.dateLabel.x - 10 - self.userImage.maxX - 10, 20);
-    
-    self.numBadge.text = @"99";
+    [self numBadgeLayout];
+}
+
+- (void)numBadgeLayout {
     if ([self.numBadge.text integerValue] == 0) {
         self.numBadge.frame = CGRectZero;
     }else if ([self.numBadge.text integerValue] > 0 && [self.numBadge.text integerValue]< 10) {
@@ -169,6 +176,58 @@
 
 + (CGFloat)cellHeight {
     return 80;
+}
+
+/**最后一条消息文本*/
+- (NSString *)_latestMessageTitleForConversationModel:(id<IConversationModel>)conversationModel
+{
+    NSString *latestMessageTitle = @"";
+    EMMessage *lastMessage = [conversationModel.conversation latestMessage];
+    if (lastMessage) {
+        EMMessageBody *messageBody = lastMessage.body;
+        switch (messageBody.type) {
+            case EMMessageBodyTypeImage:{
+                latestMessageTitle = NSEaseLocalizedString(@"message.image1", @"[image]");
+            } break;
+            case EMMessageBodyTypeText:{
+                NSString *didReceiveText = [EaseConvertToCommonEmoticonsHelper
+                                            convertToSystemEmoticons:((EMTextMessageBody *)messageBody).text];
+                latestMessageTitle = didReceiveText;
+            } break;
+            case EMMessageBodyTypeVoice:{
+                latestMessageTitle = NSEaseLocalizedString(@"message.voice1", @"[voice]");
+            } break;
+            case EMMessageBodyTypeLocation: {
+                latestMessageTitle = NSEaseLocalizedString(@"message.location1", @"[location]");
+            } break;
+            case EMMessageBodyTypeVideo: {
+                latestMessageTitle = NSEaseLocalizedString(@"message.video1", @"[video]");
+            } break;
+            case EMMessageBodyTypeFile: {
+                latestMessageTitle = NSEaseLocalizedString(@"message.file1", @"[file]");
+            } break;
+            default: {
+            } break;
+        }
+    }
+    return latestMessageTitle;
+}
+
+/**最后一条消息时间*/
+- (NSString *)_latestMessageTimeForConversationModel:(id<IConversationModel>)conversationModel
+{
+    NSString *latestMessageTime = @"";
+    EMMessage *lastMessage = [conversationModel.conversation latestMessage];;
+    if (lastMessage) {
+        double timeInterval = lastMessage.timestamp ;
+        if(timeInterval > 140000000000) {
+            timeInterval = timeInterval / 1000;
+        }
+        NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateFormat:@"YYYY-MM-dd"];
+        latestMessageTime = [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:timeInterval]];
+    }
+    return latestMessageTime;
 }
 
 - (void)awakeFromNib {

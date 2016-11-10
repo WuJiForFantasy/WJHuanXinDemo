@@ -10,6 +10,7 @@
 #import "WJHuanXinChatMsgCellUtil.h"
 #import "WJHuanXinChatStore.h"
 #import "EaseMessageReadManager.h"
+#import "UIAlertController+Blocks.h"
 
 @interface WJHuanXinChatBaseController ()<UITableViewDelegate,UITableViewDataSource,WJHuanXinChatBaseCellDelegate> {
     
@@ -61,9 +62,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(leftItemPressed)];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
     [self.view addSubview:self.tableView];
     self.store.tableView = self.tableView;
-    [self.store startConversation];
+    [self.store startConversationWithVc:self];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"send" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemPressed)];
     self.navigationItem.rightBarButtonItem = rightItem;
     [self.store tableViewDidTriggerHeaderRefresh];
@@ -71,15 +75,47 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = YES;
+    self.store.isViewDidAppear = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;
+    self.store.isViewDidAppear = NO;
 }
 
+#pragma mark - 事件监听
 
+- (void)leftItemPressed {
+    [self.store stopConversation];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)rightItemPressed {
-    [self sendPic];
+  
+    [UIAlertController showActionSheetInViewController:self withTitle:@"发送类型" message:nil cancelButtonTitle:@"取消" destructiveButtonTitle:@"普通文本" otherButtonTitles:@[@"图片",@"语音",@"视频",@"定位地址"] popoverPresentationControllerBlock:^(UIPopoverPresentationController * _Nonnull popover) {
+        
+    } tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            switch (buttonIndex) {
+                case 1:
+                    [self sendText];
+                    break;
+                case 2:
+                    [self sendPic];
+                    break;
+                case 3:
+                    [self sendeMusic];
+                    break;
+                case 4:
+                    [self sendVideo];
+                    break;
+                case 5:
+                    [self sendLocation];
+                    break;
+                default:
+                    break;
+            }
+        });
+    }];
 }
 
 #pragma mark - 消息发送---------------

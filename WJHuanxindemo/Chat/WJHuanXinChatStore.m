@@ -7,7 +7,7 @@
 //
 
 #import "WJHuanXinChatStore.h"
-
+#import "WJHuanXinChatHelper.h"
 @class EaseAtTarget;    //如果要做组需要用的
 
 @interface WJHuanXinChatStore ()<EMChatManagerDelegate> {
@@ -49,13 +49,24 @@
     [_conversation markAllMessagesAsRead:nil];
 }
 
-- (void)startConversation {
+- (void)startConversationWithVc:(WJHuanXinChatBaseController *)vc {
+    [WJHuanXinChatHelper shareHelper].chatVC = vc;
     [self createmessageQueue];
     //移除消息回调
     [[EMClient sharedClient].chatManager removeDelegate:self];
     //注册消息回调
     [[EMClient sharedClient].chatManager addDelegate:self delegateQueue:nil];
 }
+
+- (void)stopConversation {
+
+    [[EMClient sharedClient].chatManager removeDelegate:self];
+    [[EMClient sharedClient].chatManager addDelegate:nil delegateQueue:nil];
+    [WJHuanXinChatHelper shareHelper].chatVC = nil;
+}
+
+
+
 //创建消息异步线程
 - (void)createmessageQueue {
     _messageQueue = dispatch_queue_create("wjhuanxin.tqh.com", NULL);

@@ -61,6 +61,12 @@ static WJHuanXinChatHelper *helper = nil;
     });
 }
 
+- (void)setupUnreadMessageCount {
+    if (self.mainVC) {
+        [self.mainVC.store setupUnreadMessageCount];
+    }
+}
+
 #pragma mark - <EMClientDelegate>
 
 /**网络链接状态改变*/
@@ -99,6 +105,7 @@ static WJHuanXinChatHelper *helper = nil;
     NSLog(@"%@:服务器被禁用",[self class]);
      [self _clearHelper];
     [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_LOGINCHANGE object:@NO];
+    
 }
 
 #pragma mark - <EMChatManagerDelegate>
@@ -114,11 +121,19 @@ static WJHuanXinChatHelper *helper = nil;
         [_conversationListVC refreshDataSource];
     }
 }
+//- (void)cleanBadgeNum {
+//    if (self.mainVC) {
+//        [_mainVC.store setupCleanUnreadMessageCount];
+//    }
+//    
+//}
 
-/**收到普通消息*/
+///**收到普通消息*/
 - (void)messagesDidReceive:(NSArray *)aMessages {
     NSLog(@"%@:收到普通消息",[self class]);
     BOOL isRefreshCons = YES;
+    
+   
     for(EMMessage *message in aMessages){
         BOOL needShowNotification = (message.chatType != EMChatTypeChat) ? [self _needShowNotification:message.conversationId] : YES;
         
@@ -183,11 +198,11 @@ static WJHuanXinChatHelper *helper = nil;
 //    NSLog(@"%@:收到命令消息",[self class]);
 //}
 //
-///**已经发送的消息对方已经读的回调*/
+/**已经发送的消息对方已经读的回调*/
 //- (void)messagesDidRead:(NSArray *)aMessages {
 //    NSLog(@"%@:对方已读",[self class]);
 //}
-//
+
 ///**附件消息状态改变*/
 //- (void)messageAttachmentStatusDidChange:(EMMessage *)aMessage
 //                                   error:(EMError *)aError {
@@ -212,7 +227,7 @@ static WJHuanXinChatHelper *helper = nil;
 - (WJHuanXinChatBaseController*)_getCurrentChatView
 {
     //遍历会话列表中的导航栏
-    NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:self.conversationListVC.navigationController.viewControllers];
+    NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:self.mainVC.navigationController.viewControllers];
     WJHuanXinChatBaseController *chatViewContrller = nil;
     for (id viewController in viewControllers)
     {

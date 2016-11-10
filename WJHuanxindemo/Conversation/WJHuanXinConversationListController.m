@@ -12,6 +12,7 @@
 #import "WJHuanXinConversationCell.h"
 #import "WJHuanXinChatBaseController.h"
 #import "WJHuanXinChatToolController.h"
+#import "WJHuanXinChatHelper.h"
 
 @interface WJHuanXinConversationListController ()<UITableViewDelegate,UITableViewDataSource,MGSwipeTableCellDelegate>
 
@@ -47,11 +48,12 @@
 {
     [super viewWillAppear:animated];
     [self.store registerNotifications];
+    [self refresh];
+    [[WJHuanXinChatHelper shareHelper] setupUnreadMessageCount];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-     [self refresh];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
