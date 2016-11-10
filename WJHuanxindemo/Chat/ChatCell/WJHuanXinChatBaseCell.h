@@ -31,6 +31,7 @@ static CGFloat cellHeight = 0;//计算cell的高度，静态变量
 
 @property (nonatomic,strong)EaseMessageModel *msg;          //环信聊天消息
 
+@property (nonatomic,strong)UIActivityIndicatorView *activity;  //消息发送时的圈圈
 @property (nonatomic,assign)WJIMMsgFrom fromType;    //消息来源，自己还是其他人
 @property (nonatomic,strong)UIImageView *avatarView; //头像
 @property (nonatomic,strong)UIView *footerView;      //底部

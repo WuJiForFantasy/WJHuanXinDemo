@@ -20,8 +20,11 @@
         [self.contentView addSubview:self.headerView];
         [self.footerView addSubview:self.timeLabel];
         [self.contentView addSubview:self.errorView];
+        [self.contentView addSubview:self.activity];
+        
+//        self.activity.hidden = YES;
         self.errorView.hidden = YES;
-        self.errorView.backgroundColor = [UIColor redColor];
+//        self.errorView.backgroundColor = [UIColor redColor];
         self.timeLabel.font = 10;
         [self.timeLabel setRightImage:[UIImage imageNamed:@"message_ic_service"] text:@"啊哈哈"];
         [self addEvent];
@@ -36,8 +39,6 @@
     UITapGestureRecognizer *tapRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarViewTapAction:)];
     [self.avatarView addGestureRecognizer:tapRecognizer2];
 }
-
-
 
 #pragma mark - 懒加载
 
@@ -70,6 +71,7 @@
         _timeLabel.iconTextPadding = 2;
         _timeLabel.label.textColor = [UIColor colorWithHexString:@"778187"];
         _timeLabel.edge = UIEdgeInsetsMake(5, 5, 5, 5);
+        [_timeLabel setRightImage:[UIImage imageNamed:@"message_ic_service"] text:@"12:00"];
     }
     return _timeLabel;
 }
@@ -88,6 +90,14 @@
     return _errorView;
 }
 
+- (UIActivityIndicatorView *)activity {
+    if (!_activity) {
+        _activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _activity.hidden = YES;
+    }
+    return _activity;
+}
+
 #pragma mark - public
 
 - (void)setIMMsg:(EaseMessageModel *)msg {
@@ -96,6 +106,34 @@
         self.fromType = WJIMMsgFromLocalSelf;
     }else {
         self.fromType = WJIMMsgFromOther;
+    }
+    switch (msg.message.status) {
+        case EMMessageStatusDelivering:
+        {
+            [_activity setHidden:NO];
+            [_activity startAnimating];
+        }
+            break;
+        case EMMessageStatusSuccessed:
+        {
+            [_activity stopAnimating];
+            if (msg.isMessageRead) {
+                 self.timeLabel.imageView.image = [UIImage imageNamed:@"message_ic_service"];
+            }else {
+                 self.timeLabel.imageView.image = [UIImage imageNamed:@"message_ic_add_friend"];
+            }
+        }
+            break;
+        case EMMessageStatusPending:
+        case EMMessageStatusFailed:
+        {
+            [_activity stopAnimating];
+            [_activity setHidden:YES];
+            self.timeLabel.imageView.image = [UIImage imageNamed:@"message_ic_not_service"];
+        }
+            break;
+        default:
+            break;
     }
     //继承写下面的方法
 }
@@ -119,14 +157,15 @@
 - (void)timeLabelFrameLayout {
     if (self.fromType == WJIMMsgFromOther) {
         self.footerView.frame = CGRectMake(self.bodyBgView.left, self.cellHeight-WJCHAT_CELL_TIMELABELHEIGHT, WJCHAT_CELL_CONTENT_MAXWIDTH, WJCHAT_CELL_TIMELABELHEIGHT);
-        self.timeLabel.frame = CGRectMake(self.bodyBgView.width - 60, 4, 60, 20);
+//        self.timeLabel.frame = CGRectMake(self.bodyBgView.width - 60, 4, 60, 20);
     }else {
         self.footerView.frame = CGRectMake(self.bodyBgView.left, self.cellHeight-WJCHAT_CELL_TIMELABELHEIGHT, WJCHAT_CELL_CONTENT_MAXWIDTH, WJCHAT_CELL_TIMELABELHEIGHT);
-        self.timeLabel.frame = CGRectMake(0, 4, 60, 20);
+//        self.timeLabel.frame = CGRectMake(0, 4, 60, 20);
         
         
     }
-    [self.timeLabel setRightImage:[UIImage imageNamed:@"message_ic_service"] text:@"12:00"];
+    self.timeLabel.label.text = @"12:00";
+//    [self.timeLabel setRightImage:[UIImage imageNamed:@"message_ic_service"] text:@"12:00"];
 }
 
 - (void)errorViewFrameLayout {
@@ -135,6 +174,8 @@
     }else {
         self.errorView.frame = CGRectMake(self.bodyBgView.left-40, self.bodyBgView.centerY-20, 40, 40);
     }
+    
+    self.activity.frame = self.errorView.frame;
 }
 
 - (void)baseFrameLayout {

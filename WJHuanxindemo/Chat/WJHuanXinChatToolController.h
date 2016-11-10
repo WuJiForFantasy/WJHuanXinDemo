@@ -8,7 +8,7 @@
 
 #import "WJHuanXinChatBaseController.h"
 
-/**环信聊天添加底部工具控制器*/
+/**环信聊天添加底部工具控制器,开关键盘效果，弹出代理等等。。。*/
 @interface WJHuanXinChatToolController : WJHuanXinChatBaseController
 
 @end

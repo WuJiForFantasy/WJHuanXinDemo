@@ -27,6 +27,7 @@
                            conversationType:(EMConversationType)conversationType {
     self = [super init];
     if (self) {
+        self.title = @"聊天通信";
         //进入的时候获取会话对象
         [self.store getConversationChatter:conversationChatter];
     }
@@ -42,7 +43,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"20150207101056_tGZfA.thumb.700_0"]];
@@ -78,7 +79,7 @@
 
 
 - (void)rightItemPressed {
-    [self sendeMusic];
+    [self sendPic];
 }
 
 #pragma mark - 消息发送---------------

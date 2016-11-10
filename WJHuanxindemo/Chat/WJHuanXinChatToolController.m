@@ -9,7 +9,7 @@
 #import "WJHuanXinChatToolController.h"
 #import "WJChatKeyBoard.h"
 
-@interface WJHuanXinChatToolController ()<WJChatKeyBoardDataSource,WJChatKeyBoardDelegate>
+@interface WJHuanXinChatToolController ()<WJChatKeyBoardDataSource,WJChatKeyBoardDelegate,UIScrollViewDelegate>
 
 @property (nonatomic,strong)WJChatKeyBoard *keyBoard;
 @end
@@ -29,15 +29,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"聊天键盘UI";
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+//        self.edgesForExtendedLayout =  UIRectEdgeNone;
+//    }
+    self.tableView.height = SCREEN_HEIGHT - 89 - 64;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.keyBoard];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapPressed:)];
     [self.tableView addGestureRecognizer:tap];
+    
 }
 
 #pragma mark - 事件监听
 
 - (void)tapPressed:(UITapGestureRecognizer *)sender {
-    [self.view endEditing:YES];
+    [self.keyBoard hideKeyBoard];
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    [self.keyBoard hideKeyBoard];
 }
 
 #pragma mark - <WJChatKeyBoardDataSource>
@@ -61,7 +72,7 @@
 #pragma mark - <WJChatKeyBoardDelegate>
 
 - (void)chatKeyBoardTextViewDidBeginEditing:(UITextView *)textView {
-    
+//    [self tableViewChangeToEidtMode];
 }
 - (void)chatKeyBoardSendText:(NSString *)text {
     NSLog(@"%@",text);
@@ -69,6 +80,22 @@
 }
 - (void)chatKeyBoardTextViewDidChange:(UITextView *)textView {
 
+}
+
+- (void)chatKeyBoardDidChangeFrameToTopY:(CGFloat)TopY {
+   [UIView animateWithDuration:0.2 animations:^{
+       [self tableViewChangeToEidtMode];
+   }];
+}
+
+#pragma mark - others
+
+- (void)tableViewChangeToEidtMode
+{
+    self.tableView.height = self.keyBoard.top - 64;
+    if(self.tableView.contentSize.height > self.tableView.frame.size.height){
+        [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height - self.tableView.frame.size.height) animated:NO];
+    }
 }
 
 @end

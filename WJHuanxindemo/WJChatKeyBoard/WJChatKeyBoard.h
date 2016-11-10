@@ -21,7 +21,7 @@
 - (void)chatKeyBoardTextViewDidBeginEditing:(UITextView *)textView;
 - (void)chatKeyBoardSendText:(NSString *)text;
 - (void)chatKeyBoardTextViewDidChange:(UITextView *)textView;
-
+- (void)chatKeyBoardDidChangeFrameToTopY:(CGFloat)TopY;
 //表情
 - (void)chatKeyBoardFacePicked:(WJChatKeyBoard *)chatKeyBoard faceSize:(NSInteger)faceSize faceName:(NSString *)faceName delete:(BOOL)isDelete;
 

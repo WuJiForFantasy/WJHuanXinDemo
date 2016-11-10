@@ -11,7 +11,7 @@
 #import "WJHuanXinConversationStore.h"
 #import "WJHuanXinConversationCell.h"
 #import "WJHuanXinChatBaseController.h"
-
+#import "WJHuanXinChatToolController.h"
 
 @interface WJHuanXinConversationListController ()<UITableViewDelegate,UITableViewDataSource,MGSwipeTableCellDelegate>
 
@@ -115,20 +115,11 @@
     return YES;
 }
 
-//#pragma mark - <EMChatManagerDelegate>
-//
-//- (void)conversationListDidUpdate:(NSArray *)aConversationList {
-//    NSLog(@"%@",aConversationList);
-//     [self.store requestAllConversations:^{
-//        [self.tableView reloadData];
-//    }];
-//}
-
 #pragma mark - others
 
 - (void)gotoChatController:(WJHuanXinConversationModel *)model {
     EMConversation *conversation = model.conversation;
-    WJHuanXinChatBaseController *chat = [[WJHuanXinChatBaseController alloc]initWithConversationChatter:conversation.conversationId conversationType:EMConversationTypeChat];
+    WJHuanXinChatToolController *chat = [[WJHuanXinChatToolController alloc]initWithConversationChatter:conversation.conversationId conversationType:EMConversationTypeChat];
     [self.navigationController pushViewController:chat animated:YES];
 }
 

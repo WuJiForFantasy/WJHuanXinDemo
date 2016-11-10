@@ -36,8 +36,8 @@
         _emojiLabel.delegate = self;
         _emojiLabel.backgroundColor = [UIColor clearColor];
         _emojiLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-        _emojiLabel.textColor = [UIColor whiteColor];
-        _emojiLabel.backgroundColor = [UIColor colorWithRed:0.218 green:0.809 blue:0.304 alpha:1.000];
+        _emojiLabel.textColor = [UIColor blackColor];
+//        _emojiLabel.backgroundColor = [UIColor colorWithRed:0.218 green:0.809 blue:0.304 alpha:1.000];
         _emojiLabel.textInsets = UIEdgeInsetsMake(10, 10, 10, 10);
         _emojiLabel.isNeedAtAndPoundSign = YES;
         _emojiLabel.disableEmoji = NO;
@@ -57,6 +57,7 @@
     self.cellHeight = cellHeight;
     [self baseFrameLayout];
 }
+
 + (CGFloat)cellHeight {
     return cellHeight+0.001;
 }

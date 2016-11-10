@@ -10,6 +10,7 @@
 
 @interface MoyouSmallIconText : UIControl
 @property (nonatomic,strong)UILabel *label;
+@property (nonatomic,strong)UIImageView *imageView;
 //----xib设置
 @property (nonatomic,assign)CGFloat maxWith;
 @property (nonatomic,assign)CGFloat maxHeight;

@@ -11,7 +11,7 @@
 
 @interface MoyouSmallIconText ()
 
-@property (nonatomic,strong)UIImageView *imageView;
+
 
 
 

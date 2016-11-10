@@ -128,6 +128,13 @@
         self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), _kFacePanelHeight);
     }];
     [self.chatToolBar.textView resignFirstResponder];
+    [self changeKeyBoardTopY];
+}
+
+- (void)changeKeyBoardTopY {
+    if (_delegate && [_delegate respondsToSelector:@selector(chatKeyBoardDidChangeFrameToTopY:)]) {
+        [_delegate chatKeyBoardDidChangeFrameToTopY:self.frame.origin.y];
+    }
 }
 
 #pragma mark -
@@ -135,7 +142,7 @@
 //键盘改变
 - (void)keyBoardWillChangeFrame:(NSNotification *)notification {
     //其他键盘的监听
-
+  
     
     if ((self.chatToolBar.indexSelected != -1) && ([self getSupviewH:self.keyboardInitialFrame] - CGRectGetMidY(self.frame)) < CGRectGetHeight(self.frame)) {
         [UIView animateWithDuration:0.25 delay:0.1 options:UIViewAnimationOptionCurveLinear animations:^{
@@ -178,8 +185,8 @@
                 self.frame = CGRectMake(0, targetY, CGRectGetWidth(self.frame), self.frame.size.height);
             }
         }];
-
     }
+    [self changeKeyBoardTopY];
 }
 
 //弹出其他键盘
@@ -187,8 +194,6 @@
 //                    self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), kFacePanelHeight);
        self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), _kFacePanelHeight);
 }
-
-
 
 #pragma mark -- KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
@@ -208,6 +213,7 @@
         self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame)-_kFacePanelHeight, CGRectGetWidth(self.frame), _kFacePanelHeight);
 //            self.morePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame)-kMorePanelHeight, CGRectGetWidth(self.frame), kMorePanelHeight);
     //        self.OAtoolbar.frame = CGRectMake(0, CGRectGetMaxY(self.frame), CGRectGetWidth(self.frame), kChatToolBarHeight);
+    [self changeKeyBoardTopY];
 }
 
 #pragma mark - <WJChatToolBarDelegate>
@@ -225,7 +231,7 @@
         
     } completion:nil];
      [self.chatToolBar.textView resignFirstResponder];
-   
+    [self changeKeyBoardTopY];
 }
 
 //隐藏自定义面板
@@ -236,7 +242,8 @@
         self.frame = CGRectMake(0, [self getSupviewH:self.keyboardInitialFrame]-CGRectGetHeight(self.frame)+_kFacePanelHeight, kScreenWidth, CGRectGetHeight(self.frame));
         self.facePanel.frame = CGRectMake(0, CGRectGetHeight(self.frame), CGRectGetWidth(self.frame), _kFacePanelHeight);
     }];
-     [self.chatToolBar.textView resignFirstResponder];
+    [self.chatToolBar.textView resignFirstResponder];
+    [self changeKeyBoardTopY];
 }
 
 // ----- 输入状态
