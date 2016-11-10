@@ -15,7 +15,7 @@
     
 }
 
-@property (nonatomic,strong) UITableView *tableView;            //列表
+
 
 @end
 
@@ -47,8 +47,7 @@
         _tableView.dataSource = self;
         _tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"20150207101056_tGZfA.thumb.700_0"]];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapPressed:)];
-        [_tableView addGestureRecognizer:tap];
+
     }
     return _tableView;
 }
@@ -77,15 +76,9 @@
     self.tabBarController.tabBar.hidden = NO;
 }
 
-#pragma mark - 事件监听
-
-- (void)tapPressed:(UITapGestureRecognizer *)sender {
-    [self.view endEditing:YES];
-}
 
 - (void)rightItemPressed {
     [self sendeMusic];
-//    [self sendText];
 }
 
 #pragma mark - 消息发送---------------

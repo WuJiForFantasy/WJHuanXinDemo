@@ -13,6 +13,7 @@
 
 @property (nonatomic) BOOL isPlayingAudio;  //正在播放音乐
 @property (nonatomic,strong) WJHuanXinChatStore *store;         //数据配置管理
+@property (nonatomic,strong) UITableView *tableView;            //列表
 /**初始化--传入会话ID（单聊就是用户名称，会话类型是单聊）*/
 
 - (instancetype)initWithConversationChatter:(NSString *)conversationChatter

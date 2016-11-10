@@ -11,7 +11,6 @@
 
 @interface WJHuanXinChatToolController ()<WJChatKeyBoardDataSource,WJChatKeyBoardDelegate>
 
-//@property (nonatomic,strong)EaseFaceView *faceView;
 @property (nonatomic,strong)WJChatKeyBoard *keyBoard;
 @end
 
@@ -31,6 +30,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.keyBoard];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapPressed:)];
+    [self.tableView addGestureRecognizer:tap];
+}
+
+#pragma mark - 事件监听
+
+- (void)tapPressed:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:YES];
 }
 
 #pragma mark - <WJChatKeyBoardDataSource>
