@@ -80,10 +80,10 @@
         
         if (self.type == WJChatKeyBoardTypeChatComment) {
             _kChatToolBarHeight = 46;
-            _kFacePanelHeight = 216 - 40;
+            _kFacePanelHeight = 216 - 40 - 60;
         }else {
             _kChatToolBarHeight = 89;
-            _kFacePanelHeight = 216 + 20;
+            _kFacePanelHeight = 216 + 20 - 60;
         }
         _kChatKeyBoardHeight = _kChatToolBarHeight + _kFacePanelHeight;
         if (translucent) {
@@ -91,7 +91,6 @@
         }else {
            self.frame = CGRectMake(0, kScreenHeight - _kChatToolBarHeight-64, kScreenWidth, _kChatKeyBoardHeight);
         }
-        
         self.keyboardInitialFrame = self.frame;
         [self common];
     }
@@ -135,6 +134,7 @@
     if (_delegate && [_delegate respondsToSelector:@selector(chatKeyBoardDidChangeFrameToTopY:)]) {
         [_delegate chatKeyBoardDidChangeFrameToTopY:self.frame.origin.y];
     }
+    NSLog(@"我自定义的键盘改变了~~~~~~~~  ········· ·····");
 }
 
 #pragma mark -

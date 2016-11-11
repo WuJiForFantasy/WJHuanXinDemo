@@ -45,6 +45,7 @@
 - (UIImageView *)avatarView {
     if (!_avatarView) {
         _avatarView = [UIImageView new];
+        _avatarView.backgroundColor = [UIColor redColor];
     }
     return _avatarView;
 }
@@ -71,7 +72,8 @@
         _timeLabel.iconTextPadding = 2;
         _timeLabel.label.textColor = [UIColor colorWithHexString:@"778187"];
         _timeLabel.edge = UIEdgeInsetsMake(5, 5, 5, 5);
-        [_timeLabel setRightImage:[UIImage imageNamed:@"message_ic_service"] text:@"12:00"];
+        //默认是没有阅读的状态
+        [_timeLabel setRightImage:[UIImage imageNamed:@"message_ic_add_friend"] text:@"12:00"];
     }
     return _timeLabel;
 }
@@ -110,6 +112,7 @@
     switch (msg.message.status) {
         case EMMessageStatusDelivering:
         {
+            self.timeLabel.imageView.image = [UIImage imageNamed:@"message_ic_add_friend"];
             [_activity setHidden:NO];
             [_activity startAnimating];
         }

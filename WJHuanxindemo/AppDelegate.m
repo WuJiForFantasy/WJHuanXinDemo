@@ -36,6 +36,9 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = main;
+    
+//    main.tabBar.hidden = YES;
+    
     [self.window makeKeyWindow];
     
     //聊天的监听，网络状态，消息接收等。。。
