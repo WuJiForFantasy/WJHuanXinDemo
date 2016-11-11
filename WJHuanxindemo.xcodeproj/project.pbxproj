@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B81F37AA019C0856AAACE8B3 /* libPods-WJHuanxindemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 998EAB46206FB56225EF0CF3 /* libPods-WJHuanxindemo.a */; };
+		B90275DF1DD565580066F06D /* testMovie.mov in Resources */ = {isa = PBXBuildFile; fileRef = B90275DE1DD565580066F06D /* testMovie.mov */; };
+		B90275E21DD56D110066F06D /* testMusic.amr in Resources */ = {isa = PBXBuildFile; fileRef = B90275E11DD56D110066F06D /* testMusic.amr */; };
 		B95F3BEC1DD0238C0034914A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F3BEB1DD0238C0034914A /* main.m */; };
 		B95F3BEF1DD0238C0034914A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B95F3BEE1DD0238C0034914A /* AppDelegate.m */; };
 		B95F3BF51DD0238C0034914A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B95F3BF31DD0238C0034914A /* Main.storyboard */; };
@@ -246,6 +248,8 @@
 		032A66D948A950A823FB122B /* Pods-WJHuanxindemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WJHuanxindemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WJHuanxindemo/Pods-WJHuanxindemo.debug.xcconfig"; sourceTree = "<group>"; };
 		5F4DD9E422873888524E0218 /* Pods-WJHuanxindemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WJHuanxindemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WJHuanxindemo/Pods-WJHuanxindemo.release.xcconfig"; sourceTree = "<group>"; };
 		998EAB46206FB56225EF0CF3 /* libPods-WJHuanxindemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WJHuanxindemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B90275DE1DD565580066F06D /* testMovie.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = testMovie.mov; sourceTree = "<group>"; };
+		B90275E11DD56D110066F06D /* testMusic.amr */ = {isa = PBXFileReference; lastKnownFileType = file; path = testMusic.amr; sourceTree = "<group>"; };
 		B95F3BE71DD0238C0034914A /* WJHuanxindemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WJHuanxindemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95F3BEB1DD0238C0034914A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B95F3BED1DD0238C0034914A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -749,6 +753,8 @@
 		B95F3BE91DD0238C0034914A /* WJHuanxindemo */ = {
 			isa = PBXGroup;
 			children = (
+				B90275E11DD56D110066F06D /* testMusic.amr */,
+				B90275DE1DD565580066F06D /* testMovie.mov */,
 				B964AF171DD47B8C00C5148D /* UIAlertController+Blocks.h */,
 				B964AF181DD47B8C00C5148D /* UIAlertController+Blocks.m */,
 				B9C56EFA1DD3536900A37843 /* YYText */,
@@ -1827,12 +1833,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90275E21DD56D110066F06D /* testMusic.amr in Resources */,
 				B95F3BFA1DD0238C0034914A /* LaunchScreen.storyboard in Resources */,
 				B964AF0B1DD41D2C00C5148D /* MLEmoji_Expression.bundle in Resources */,
 				B964AEA61DD402D500C5148D /* EaseUIResource.bundle in Resources */,
 				B95F3BF71DD0238C0034914A /* Assets.xcassets in Resources */,
 				B95F3BF51DD0238C0034914A /* Main.storyboard in Resources */,
 				B9C56EF91DD3305500A37843 /* face.plist in Resources */,
+				B90275DF1DD565580066F06D /* testMovie.mov in Resources */,
 				B9C56EF81DD3305500A37843 /* emotion.plist in Resources */,
 				B9C56F321DD3536900A37843 /* LICENSE in Resources */,
 				B964AF0D1DD41D2C00C5148D /* MLEmoji_ExpressionImage.plist in Resources */,

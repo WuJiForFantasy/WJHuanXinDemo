@@ -83,7 +83,7 @@
 }
 
 - (void)chatKeyBoardDidChangeFrameToTopY:(CGFloat)TopY {
-   [UIView animateWithDuration:0.2 animations:^{
+   [UIView animateWithDuration:0.25 animations:^{
        [self tableViewChangeToEidtMode];
    }];
 }

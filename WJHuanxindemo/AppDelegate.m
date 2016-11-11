@@ -20,9 +20,44 @@
 
 @implementation AppDelegate
 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+-(NSString*) copyFile2Documents:(NSString*)fileName
+{
+    NSFileManager*fileManager =[NSFileManager defaultManager];
+    NSError*error;
+    NSArray*paths =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString*documentsDirectory =[paths objectAtIndex:0];
     
+    NSString*destPath =[documentsDirectory stringByAppendingPathComponent:fileName];
+    
+    //  如果目标目录也就是(Documents)目录没有数据库文件的时候，才会复制一份，否则不复制
+    if(![fileManager fileExistsAtPath:destPath]){
+        NSString* sourcePath =[[NSBundle mainBundle] pathForResource:fileName ofType:@""];
+        [fileManager copyItemAtPath:sourcePath toPath:destPath error:&error];
+        
+    }
+    return destPath;
+}
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self copyFile2Documents:@"testMovie.mov"];
+     [self copyFile2Documents:@"testMusic.amr"];
+//    NSError *error = nil;
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"testMovie.mov" ofType:nil];
+//    NSLog(@"%@",path);
+//    
+//    BOOL flag = [[NSFileManager defaultManager] copyItemAtPath:path
+//                                                        toPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
+//                                                         error:&error];
+//    if (flag) {
+//        NSLog(@"成功");
+//    }else {
+//        NSLog(@"失败");
+//    }
+    
+//    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"testMusic.amr" ofType:nil];
+//    BOOL flag1 = [[NSFileManager defaultManager] copyItemAtPath:path1
+//                                                        toPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
+//                                                         error:&error];
+    NSLog(@"%@",NSHomeDirectory());
     [self easemobApplication:application didFinishLaunchingWithOptions:launchOptions appkey:@"1103161107178551#moyou" apnsCertName:nil otherConfig:nil];
     
     MainController *main = [[MainController alloc]init];

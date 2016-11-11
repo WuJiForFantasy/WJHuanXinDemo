@@ -22,7 +22,7 @@
 {
     self = [super init];
     if (self) {
-        self.messageCountOfPage = 50; //默认50
+        self.messageCountOfPage = 20; //默认20
     }
     return self;
 }

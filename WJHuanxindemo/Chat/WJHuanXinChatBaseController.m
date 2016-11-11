@@ -11,6 +11,7 @@
 #import "WJHuanXinChatStore.h"
 #import "EaseMessageReadManager.h"
 #import "UIAlertController+Blocks.h"
+#import "MJRefresh.h"
 
 @interface WJHuanXinChatBaseController ()<UITableViewDelegate,UITableViewDataSource,WJHuanXinChatBaseCellDelegate> {
     
@@ -50,8 +51,30 @@
         _tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"20150207101056_tGZfA.thumb.700_0"]];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
+        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self.store tableViewDidTriggerHeaderRefresh];
+            [self tableViewDidFinishTriggerHeader:YES reload:NO];
+        }];
+
     }
     return _tableView;
+}
+
+- (void)tableViewDidFinishTriggerHeader:(BOOL)isHeader reload:(BOOL)reload
+{
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (reload) {
+            [weakSelf.tableView reloadData];
+        }
+        
+        if (isHeader) {
+            [weakSelf.tableView.mj_header endRefreshing];
+        }
+        else{
+            [weakSelf.tableView.mj_footer endRefreshing];
+        }
+    });
 }
 
 #pragma mark - 生命周期
@@ -121,13 +144,19 @@
 #pragma mark - 消息发送---------------
 
 - (void)sendVideo {
-    NSString *videoUrl =  [NSString stringWithFormat:@"%@/Library/appdata/chatbuffer/02.mov",NSHomeDirectory()];
-    [self.store sendVideoMessageWithURL:[NSURL URLWithString:videoUrl]];
+//    NSString *videoUrl =  [NSString stringWithFormat:@"%@/Library/appdata/chatbuffer/02.mov",NSHomeDirectory()];
+    NSString *urlPath = [NSString stringWithFormat:@"%@/Documents/testMovie.mov",NSHomeDirectory()];
+    
+    [self.store sendVideoMessageWithURL:[NSURL URLWithString:urlPath]];
+
+    
 }
 
 - (void)sendeMusic {
-    NSString *url =  [NSString stringWithFormat:@"%@/Library/appdata/chatbuffer/147866230657845.amr",NSHomeDirectory()];
-    [self.store sendVoiceMessageWithLocalPath:url duration:10];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"testMusic" ofType:@"amr"];
+//    NSString *url =  [NSString stringWithFormat:@"%@/Library/appdata/chatbuffer/147866230657845.amr",NSHomeDirectory()];
+     NSString *urlPath = [NSString stringWithFormat:@"%@/Documents/testMusic.amr",NSHomeDirectory()];
+    [self.store sendVoiceMessageWithLocalPath:urlPath duration:10];
 }
 
 - (void)sendPic {
