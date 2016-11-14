@@ -58,7 +58,7 @@
 //                                                        toPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
 //                                                         error:&error];
     NSLog(@"%@",NSHomeDirectory());
-    [self easemobApplication:application didFinishLaunchingWithOptions:launchOptions appkey:@"1103161107178551#moyou" apnsCertName:nil otherConfig:nil];
+    [self easemobApplication:application didFinishLaunchingWithOptions:launchOptions appkey:@"" apnsCertName:nil otherConfig:nil];
     
     MainController *main = [[MainController alloc]init];
     WJHuanXinConversationListController *conversation = [[WJHuanXinConversationListController alloc]init];

@@ -55,7 +55,6 @@
             [self.store tableViewDidTriggerHeaderRefresh];
             [self tableViewDidFinishTriggerHeader:YES reload:NO];
         }];
-
     }
     return _tableView;
 }
